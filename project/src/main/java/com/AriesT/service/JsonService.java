@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class JsonService {
 	
 	static Logger logger;
-	
 	static {
 		logger = Logger.getLogger(JsonService.class);
 		BasicConfigurator.configure();
