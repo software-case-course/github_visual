@@ -18,23 +18,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.AriesT.service.JsonService;
 
 @RestController
-public class Controller {
+public class SimpleController {
 
 	@Autowired
 	JsonService service;
 
 	static Logger logger;
 	static {
-		logger = Logger.getLogger(Controller.class);
+		logger = Logger.getLogger(SimpleController.class);
 		logger.setLevel(Level.INFO);
 		BasicConfigurator.configure();
 	}
 
-	@RequestMapping(value = "/checkjava", method = RequestMethod.GET)
-	public void checkjava() {
-		String request = "https://api.github.com/search/repositories?q=language:java&sort=stars";
+	@RequestMapping(value = "/CheckLanguageUse", method = RequestMethod.GET)
+	public void checkjava(String language) {
+		String request = "https://api.github.com/search/repositories?q=language:" + language + "&sort=stars";
+		JSONObject jsonObject;
+		if ((jsonObject = getjson(request)) != null) {
+			service.getjson(jsonObject);
+		} else {
+			logger.warn("未获取到json");
+		}
+	}
+
+	JSONObject getjson(String address) {
+
+		JSONObject json = null;
+
 		try {
-			URL url = new URL(request);
+			URL url = new URL(address);
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			httpURLConnection.setConnectTimeout(30000);// 辣鸡github反应真慢
 			httpURLConnection.setReadTimeout(30000);
@@ -44,7 +56,7 @@ public class Controller {
 			boolean redircet = false;
 
 			if (response == HttpURLConnection.HTTP_MOVED_PERM || response == HttpURLConnection.HTTP_SEE_OTHER
-					||  response == HttpURLConnection.HTTP_MOVED_TEMP) {
+					|| response == HttpURLConnection.HTTP_MOVED_TEMP) {
 				redircet = true;
 
 				String newUrl = httpURLConnection.getHeaderField("Location");
@@ -54,7 +66,7 @@ public class Controller {
 				httpURLConnection.setRequestProperty("Cookie", cookies);
 				logger.info("Redirect to URL : " + newUrl);
 			}
-
+			
 			if (response == HttpURLConnection.HTTP_OK || redircet) {
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
@@ -68,15 +80,14 @@ public class Controller {
 				reader.close();
 				httpURLConnection.disconnect();
 
-				JSONObject json = new JSONObject(stringBuffer.toString());
-				service.getjson(json);
+				json = new JSONObject(stringBuffer.toString());
 			} else {
-				logger.warn(httpURLConnection.getResponseCode());
+				
 			}
-
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.warn("ERROR");
+			logger.error("json获取失败");
 		}
+		return json;
 	}
+
 }
