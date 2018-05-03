@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.AriesT.Entity.Data_Language_Use;
+import com.AriesT.Entity.ResultEntity;
+
 
 @Service
 public class JsonService {
@@ -17,7 +20,8 @@ public class JsonService {
 		logger.setLevel(Level.INFO);
 	}
 	
-	public void getjson(JSONObject jsonObject) {
-		logger.info(jsonObject.toString());
+	public ResultEntity<Data_Language_Use> getjson(JSONObject jsonObject) {
+		
+		
 	}
 }

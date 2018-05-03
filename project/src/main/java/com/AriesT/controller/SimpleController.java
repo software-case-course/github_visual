@@ -1,7 +1,6 @@
-package com.Aries.controller;
+package com.AriesT.controller;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -32,7 +31,7 @@ public class SimpleController {
 
 	@RequestMapping(value = "/CheckLanguageUse", method = RequestMethod.GET)
 	public void checkjava(String language) {
-		String request = "https://api.github.com/search/repositories?q=language:" + language + "&sort=stars";
+		String request = "https://api.github.com/search/repositories?q=language:" + language + "&sort=updated";
 		JSONObject jsonObject;
 		if ((jsonObject = getjson(request)) != null) {
 			service.getjson(jsonObject);
@@ -40,7 +39,10 @@ public class SimpleController {
 			logger.warn("未获取到json");
 		}
 	}
-
+	
+//	https://api.github.com/search/repositories?q=language:java&sort=updated&q=created:%3E=2017-01-01&q=created:%3C2018-01-01&per_page=1
+//	https://api.github.com/search/repositories?q=language:java&sort=updated&q=created:2017-01-01..2018-01-01&per_page=1
+	
 	JSONObject getjson(String address) {
 
 		JSONObject json = null;
@@ -82,7 +84,7 @@ public class SimpleController {
 
 				json = new JSONObject(stringBuffer.toString());
 			} else {
-				
+													
 			}
 		} catch (Exception e) {
 			logger.error("json获取失败");
