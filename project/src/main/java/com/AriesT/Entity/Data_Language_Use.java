@@ -1,21 +1,13 @@
 package com.AriesT.Entity;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties({ "handler","hibernateLazyInitializer" })  
 public class Data_Language_Use {
 
-	Date date;
 	String language;
-	Integer number;
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	Data data;
+	
 	public String getLanguage() {
 		return language;
 	}
@@ -24,19 +16,78 @@ public class Data_Language_Use {
 		this.language = language;
 	}
 
-	public Integer getNumber() {
-		return number;
+	public Data getData() {
+		return data;
 	}
 
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setData(Data data) {
+		this.data = data;
 	}
-
-	public Data_Language_Use(Date date, String language, Integer number) {
+	
+	public void setData(String year, String month, Integer number) {
+		this.data.year = year;
+		this.data.month = month;
+		this.data.number = number;
+	}
+	
+	
+	public Data_Language_Use(String language, Data data) {
 		super();
-		this.date = date;
 		this.language = language;
-		this.number = number;
+		this.data = data;
+	}
+
+	public Data_Language_Use(String language, String year, String month, Integer number) {
+		super();
+		this.language = language;
+		this.data = new Data(year, month, number);
+	}
+
+	@Override
+	public String toString() {
+		return "Data_Language_Use [language=" + language + ", data=" + data + "]";
+	}
+
+	class Data {
+		
+		@Override
+		public String toString() {
+			return "Data [year=" + year + ", month=" + month + ", number=" + number + "]";
+		}
+
+		public String getYear() {
+			return year;
+		}
+
+		public void setYear(String year) {
+			this.year = year;
+		}
+
+		public String getMonth() {
+			return month;
+		}
+
+		public void setMonth(String month) {
+			this.month = month;
+		}
+
+		public Integer getNumber() {
+			return number;
+		}
+
+		public void setNumber(Integer number) {
+			this.number = number;
+		}
+
+		String year;
+		String month;
+		Integer number;
+
+		public Data(String year, String month, Integer number) {
+			this.year = year;
+			this.month = month;
+			this.number = number;
+		}
 	}
 
 }

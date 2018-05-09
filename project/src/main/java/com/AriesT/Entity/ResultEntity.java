@@ -53,8 +53,8 @@ public class ResultEntity<T> {
 		return "ResultEntity [status=" + status + ", msg=" + msg + ", data=" + data + ", error=" + error + "]";
 	}
 
-	public static ResultEntity<Map> SetResultForController(Map map) {//来自大佬的思路
-		ResultEntity<Map> result = new ResultEntity<Map>();
+	public static ResultEntity<Map<String,Object>> SetResultForController(Map<String,Object> map) {//来自大佬的思路
+		ResultEntity<Map<String,Object>> result = new ResultEntity<Map<String,Object>>();
 		if (map != null && map.get("data") != null) {
 			result.setStatus(200);
 			result.setMsg("OK");

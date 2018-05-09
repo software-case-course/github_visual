@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
-import com.AriesT.service.MyfirstService;
-
 import test.UnitTestBase;
 
 
