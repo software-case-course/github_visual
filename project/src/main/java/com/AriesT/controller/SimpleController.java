@@ -27,14 +27,14 @@ public class SimpleController {
 	}
 
 	@RequestMapping(value = "/CheckLanguageUseByYear", method = RequestMethod.GET)
-	public ResultEntity<Map<String,Object>> CheckLanguageUseByYear() {
+	public ResultEntity<Map<String,Object>> CheckLanguageUseByYear() throws Exception {
 		Map<String, Object> map = service.CheckLanguageUseByYear();
 		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
 	
 	@RequestMapping(value = "/CheckLanguageUseByMonth", method = RequestMethod.GET)
-	public ResultEntity<Map<String,Object>> CheckLanguageUseByMonth(String year) {
+	public ResultEntity<Map<String,Object>> CheckLanguageUseByMonth(String year) throws Exception {
 		Map<String, Object> map = service.CheckLanguageUseByMonth(year);
 		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
 		return result;
