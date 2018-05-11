@@ -11,10 +11,12 @@ import java.util.Map;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.AriesT.Entity.Data_Language_Use;
+import com.AriesT.Entity.RepositoryInfo;
 
 @Service
 public class JsonService {
@@ -125,10 +127,52 @@ public class JsonService {
 
 		return map;
 	}
+	
+	public Map<String, Object> getHighlyRatedRepositories(String type) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		ArrayList<RepositoryInfo> datas = new ArrayList<>();
 
-	JSONObject analyjson(final String address) {
+		String request = "https://api.github.com/search/repositories?q=" + type + ":>1000&sort=" + type
+				+ "&per_page=100";
+		String fullname;
+		String language;
+		Integer num;
+		String region = "";
+
+		JSONObject jsonObject = analyjson(request);
+		JSONObject insideObject = null;
+		JSONObject userObject = null;
+		RepositoryInfo data = null;
+		if (jsonObject != null) {
+			JSONArray array = jsonObject.getJSONArray("items");
+			for (int i = 0; i < array.length(); i++) {
+				insideObject = array.getJSONObject(i);
+				fullname = insideObject.getString("full_name");
+				language = insideObject.get("language") instanceof java.lang.String ? insideObject.getString("language")
+						: "";
+				num = insideObject.getInt(type.equals("stars") ? "stargazers_count" : "forks_count");
+
+				String userJson = insideObject.getJSONObject("owner").getString("url");
+				userObject = analyjson(userJson);
+//				logger.info(userJson);
+				region = userObject.get("location") instanceof java.lang.String ? userObject.getString("location")
+						: "";
+				data = new RepositoryInfo(fullname, language, num, region);
+				datas.add(data);
+			}
+		} else {
+			logger.warn("未获取到json");
+		}
+
+		map.put("num", datas.size());
+		map.put("data", datas);
+		map.put("info", null);
+
+		return map;
+	}
+
+	JSONObject analyjson(final String address)  {
 		JSONObject json = null;
-
 		try {
 			URL url = new URL(address);
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -158,7 +202,7 @@ public class JsonService {
 				StringBuffer stringBuffer = new StringBuffer();
 				String string = null;
 				while ((string = reader.readLine()) != null) {
-					logger.info(string);
+					logger.info("json:  "+string);
 					stringBuffer.append(string + "\r\n");
 				}
 				reader.close();
@@ -166,6 +210,7 @@ public class JsonService {
 
 				json = new JSONObject(stringBuffer.toString());
 			} else {
+				logger.error(response);
 				json = null;
 			}
 		} catch (Exception e) {
@@ -173,4 +218,5 @@ public class JsonService {
 		}
 		return json;
 	}
+
 }

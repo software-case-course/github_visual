@@ -40,5 +40,10 @@ public class SimpleController {
 		return result;
 	}
 	
-	
+	@RequestMapping(value = "/getHighlyRatedRepositories", method = RequestMethod.GET)
+	public ResultEntity<Map<String,Object>> getHighlyRatedRepositories(String type) throws Exception {
+		Map<String, Object> map = service.getHighlyRatedRepositories(type);
+		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
 }
