@@ -58,9 +58,9 @@ public class JsonService {
 			for (int j = 0; j < years.length; j++) {
 				String language = languages[i];
 				String year = years[j];
-//				logger.info(language+"   "+year);
-				String request = "https://api.github.com/search/repositories?q=language:" + language + "+created:" + year
-						+ "-01-01.." + year + "-12-31&per_page=1";
+				// logger.info(language+" "+year);
+				String request = "https://api.github.com/search/repositories?q=language:" + language + "+created:"
+						+ year + "-01-01.." + year + "-12-31&per_page=1";
 
 				Thread thread = new Thread(new Runnable() {
 					@Override
@@ -88,18 +88,18 @@ public class JsonService {
 
 		return map;
 	}
-	
+
 	public Map<String, Object> CheckLanguageUseByMonth(String year) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<Data_Language_Use> datas = new ArrayList<>();
-		
+
 		for (int i = 0; i < languages.length; i++) {
 			for (int j = 0; j < daysofmonth.size(); j++) {
 				String language = languages[i];
-				String month = String.valueOf(j+1);
+				String month = String.valueOf(j + 1);
 				String day = daysofmonth.get(month);
-				String request = "https://api.github.com/search/repositories?q=language:" + language + "+created:" + year + "-"
-						+ month + "-01.." + year + "-" + month + "-" + day + "&per_page=1";
+				String request = "https://api.github.com/search/repositories?q=language:" + language + "+created:"
+						+ year + "-" + month + "-01.." + year + "-" + month + "-" + day + "&per_page=1";
 
 				Thread thread = new Thread(new Runnable() {
 					@Override
@@ -127,38 +127,48 @@ public class JsonService {
 
 		return map;
 	}
-	
+
 	public Map<String, Object> getHighlyRatedRepositories(String type) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<RepositoryInfo> datas = new ArrayList<>();
-
 		String request = "https://api.github.com/search/repositories?q=" + type + ":>1000&sort=" + type
 				+ "&per_page=100";
-		String fullname;
-		String language;
-		Integer num;
-		String region = "";
 
 		JSONObject jsonObject = analyjson(request);
 		JSONObject insideObject = null;
-		JSONObject userObject = null;
-		RepositoryInfo data = null;
 		if (jsonObject != null) {
 			JSONArray array = jsonObject.getJSONArray("items");
 			for (int i = 0; i < array.length(); i++) {
 				insideObject = array.getJSONObject(i);
-				fullname = insideObject.getString("full_name");
-				language = insideObject.get("language") instanceof java.lang.String ? insideObject.getString("language")
+
+				String fullname = insideObject.getString("full_name");
+				String language = insideObject.get("language") instanceof java.lang.String
+						? insideObject.getString("language")
 						: "";
-				num = insideObject.getInt(type.equals("stars") ? "stargazers_count" : "forks_count");
+				Integer num = insideObject.getInt(type.equals("stars") ? "stargazers_count" : "forks_count");
 
 				String userJson = insideObject.getJSONObject("owner").getString("url");
-				userObject = analyjson(userJson);
-//				logger.info(userJson);
-				region = userObject.get("location") instanceof java.lang.String ? userObject.getString("location")
-						: "";
-				data = new RepositoryInfo(fullname, language, num, region);
-				datas.add(data);
+				Thread thread = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						JSONObject userObject = analyjson(userJson);
+						if (userObject != null) {
+							String region = userObject.get("location") instanceof java.lang.String
+									? userObject.getString("location")
+									: "";
+							RepositoryInfo data = new RepositoryInfo(fullname, language, num, region);
+							synchronized (datas) {
+								datas.add(data);
+							}
+						} else {
+							RepositoryInfo data = new RepositoryInfo(fullname, language, num, "");
+							synchronized (datas) {
+								datas.add(data);
+							}
+						}
+					}
+				});
+				thread.run();
 			}
 		} else {
 			logger.warn("未获取到json");
@@ -171,7 +181,7 @@ public class JsonService {
 		return map;
 	}
 
-	JSONObject analyjson(final String address)  {
+	JSONObject analyjson(final String address) {
 		JSONObject json = null;
 		try {
 			URL url = new URL(address);
@@ -202,7 +212,7 @@ public class JsonService {
 				StringBuffer stringBuffer = new StringBuffer();
 				String string = null;
 				while ((string = reader.readLine()) != null) {
-					logger.info("json:  "+string);
+					logger.info("json:  " + string);
 					stringBuffer.append(string + "\r\n");
 				}
 				reader.close();
