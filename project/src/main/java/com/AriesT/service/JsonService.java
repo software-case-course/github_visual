@@ -5,8 +5,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Base64.Encoder;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
@@ -41,6 +43,7 @@ public class JsonService {
 			put("12", "31");
 		}
 	};
+	static final String token = "99e129ff4fb85eda845a9fdacd30d7d1703f066a";
 
 	static Logger logger;
 	static {
@@ -190,6 +193,11 @@ public class JsonService {
 			httpURLConnection.setReadTimeout(5000);
 			httpURLConnection.setInstanceFollowRedirects(false);
 
+			String tokens = token + ":x-oauth-basic";
+			Encoder encoder = Base64.getEncoder();
+			String authString = "Basic " + encoder.encodeToString(tokens.getBytes());
+			httpURLConnection.setRequestProperty("Authorization", authString);//验证
+
 			int response = httpURLConnection.getResponseCode();
 			boolean redircet = false;
 
@@ -220,7 +228,6 @@ public class JsonService {
 
 				json = new JSONObject(stringBuffer.toString());
 			} else {
-				logger.error(response);
 				json = null;
 			}
 		} catch (Exception e) {
