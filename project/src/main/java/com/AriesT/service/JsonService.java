@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Base64.Encoder;
 
@@ -15,10 +16,12 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.AriesT.Entity.Data_Language_Use;
 import com.AriesT.Entity.RepositoryInfo;
+import com.AriesT.dao.Mapper;
 
 @Service
 public class JsonService {
@@ -52,6 +55,9 @@ public class JsonService {
 		logger.setLevel(Level.INFO);
 	}
 
+	@Autowired
+	private Mapper mapper;
+	
 	public Map<String, Object> CheckLanguageUseByYear() throws Exception {
 		Map<String, Object> map = new HashMap<>();
 
@@ -181,6 +187,17 @@ public class JsonService {
 		map.put("data", datas);
 		map.put("info", null);
 
+		return map;
+	}
+	
+	public Map<String, Object> test() throws Exception {
+		List<RepositoryInfo> list = mapper.getAll();
+		HashMap<String, Object> map = new HashMap<>();
+
+		map.put("num", list.size());
+		map.put("data", list);
+		map.put("info", null);
+		
 		return map;
 	}
 

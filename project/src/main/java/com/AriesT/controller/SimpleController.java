@@ -46,4 +46,11 @@ public class SimpleController {
 		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public ResultEntity<Map<String,Object>> test() throws Exception {
+		Map<String, Object> map = service.test();
+		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
 }

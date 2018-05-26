@@ -7,12 +7,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- <bean id="MyfirstService" class="com.AriesT.service.MyfirstService"> 
-		<property name="testdao" ref="Testdao"> </property> </bean> <bean id="Testdao" 
-		class="com.AriesT.dao.Testdao"></bean> -->
-
 	<context:component-scan base-package="com.AriesT.dao"></context:component-scan>
 	<context:component-scan base-package="com.AriesT.service"></context:component-scan>
 	<context:component-scan base-package="com.AriesT.controller"></context:component-scan>
+	
 
 </beans>
