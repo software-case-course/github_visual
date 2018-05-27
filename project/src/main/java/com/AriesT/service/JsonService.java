@@ -11,11 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Base64.Encoder;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +27,7 @@ import com.AriesT.Entity.RepositoryInfo;
 import com.AriesT.dao.Mapper;
 
 @Service
-public class JsonService {
+public class JsonService extends SqlSessionDaoSupport{
 
 	static final String[] languages = { "Java", "Python", "HTML", "JavaScript", "PHP", "Ruby", "CSS", "C++", "C#",
 			"TypeScript" };
@@ -53,6 +56,11 @@ public class JsonService {
 		logger = Logger.getLogger(JsonService.class);
 		BasicConfigurator.configure();
 		logger.setLevel(Level.INFO);
+	}
+	
+	@Autowired
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		super.setSqlSessionFactory(sqlSessionFactory);
 	}
 
 	@Autowired
@@ -140,47 +148,50 @@ public class JsonService {
 	public Map<String, Object> getHighlyRatedRepositories(String type) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<RepositoryInfo> datas = new ArrayList<>();
-		String request = "https://api.github.com/search/repositories?q=" + type + ":>1000&sort=" + type
-				+ "&per_page=100";
 
-		JSONObject jsonObject = analyjson(request);
-		JSONObject insideObject = null;
-		if (jsonObject != null) {
-			JSONArray array = jsonObject.getJSONArray("items");
-			for (int i = 0; i < array.length(); i++) {
-				insideObject = array.getJSONObject(i);
+		for (int j = 1; j <= 5; j++) {
+			String request = "https://api.github.com/search/repositories?q=" + type + ":>1000&sort=" + type
+					+ "&per_page=100&page="+ j;
+			JSONObject jsonObject = analyjson(request);
+			JSONObject insideObject = null;
+			
+			if (jsonObject != null) {
+				JSONArray array = jsonObject.getJSONArray("items");
+				for (int i = 0; i < array.length(); i++) {//json数组
+					insideObject = array.getJSONObject(i);
 
-				String fullname = insideObject.getString("full_name");
-				String language = insideObject.get("language") instanceof java.lang.String
-						? insideObject.getString("language")
-						: "";
-				Integer num = insideObject.getInt(type.equals("stars") ? "stargazers_count" : "forks_count");
+					String fullname = insideObject.getString("full_name");
+					String language = insideObject.get("language") instanceof java.lang.String
+							? insideObject.getString("language")
+							: "";
+					Integer num = insideObject.getInt(type.equals("stars") ? "stargazers_count" : "forks_count");
 
-				String userJson = insideObject.getJSONObject("owner").getString("url");
-				Thread thread = new Thread(new Runnable() {
-					@Override
-					public void run() {
-						JSONObject userObject = analyjson(userJson);
-						if (userObject != null) {
-							String region = userObject.get("location") instanceof java.lang.String
-									? userObject.getString("location")
-									: "";
-							RepositoryInfo data = new RepositoryInfo(fullname, language, num, region);
-							synchronized (datas) {
-								datas.add(data);
-							}
-						} else {
-							RepositoryInfo data = new RepositoryInfo(fullname, language, num, "");
-							synchronized (datas) {
-								datas.add(data);
+					String userJson = insideObject.getJSONObject("owner").getString("url");
+					Thread thread = new Thread(new Runnable() {
+						@Override
+						public void run() {
+							JSONObject userObject = analyjson(userJson);
+							if (userObject != null) {
+								String region = userObject.get("location") instanceof java.lang.String
+										? userObject.getString("location")
+										: "";
+								RepositoryInfo data = new RepositoryInfo(fullname, language, num, region);
+								synchronized (datas) {
+									datas.add(data);
+								}
+							} else {
+								RepositoryInfo data = new RepositoryInfo(fullname, language, num, "");
+								synchronized (datas) {
+									datas.add(data);
+								}
 							}
 						}
-					}
-				});
-				thread.run();
+					});
+					thread.run();
+				}
+			} else {
+				logger.warn("未获取到json");
 			}
-		} else {
-			logger.warn("未获取到json");
 		}
 
 		map.put("num", datas.size());
@@ -191,14 +202,13 @@ public class JsonService {
 	}
 	
 	public Map<String, Object> test() throws Exception {
-		List<RepositoryInfo> list = mapper.getAll();
-		HashMap<String, Object> map = new HashMap<>();
-
-		map.put("num", list.size());
-		map.put("data", list);
-		map.put("info", null);
-		
-		return map;
+		List<Data_Language_Use> list = new ArrayList<>();
+		for (int i = 0; i < 100; i++) {
+			list.add(new Data_Language_Use(String.valueOf(i), "asd", "sad", i));
+		}
+		SqlSession sqlSession = this.getSqlSession();
+		sqlSession.insert("com.AriesT.mapping.mapping.insertyear", list);
+		return new HashMap<>();
 	}
 
 	JSONObject analyjson(final String address) {
