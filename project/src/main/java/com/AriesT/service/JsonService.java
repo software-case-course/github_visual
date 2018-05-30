@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Base64.Encoder;
 
+import com.AriesT.Entity.Repository;
+import com.AriesT.Entity.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.BasicConfigurator;
@@ -209,6 +211,34 @@ public class JsonService extends SqlSessionDaoSupport{
 		SqlSession sqlSession = this.getSqlSession();
 		sqlSession.insert("com.AriesT.mapping.mapping.insertyear", list);
 		return new HashMap<>();
+	}
+
+	public Map<String,Object> getrepo(String type,String lang) throws Exception{
+        Map<String, Object> map = new HashMap<>();
+	    List<Repository> list=new ArrayList<>();
+	    SqlSession sqlSession=this.getSqlSession();
+	    if(lang==null){
+	        if(type.equals("stars"))
+	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getallrepobystars");
+	        else
+	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getallrepobyforks");
+        }
+        else{
+	        if(type.equals("stars"))
+	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getlangrepobystars",lang);
+	        else
+	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getlangrepobyforks",lang);
+        }
+        map.put("num",list.size());
+	    map.put("datas",list);
+	    map.put("info",null);
+	    return map;
+    }
+
+	public String getlocation(String username) throws Exception{
+		SqlSession sqlSession=this.getSqlSession();
+		User user=sqlSession.selectOne("com.AriesT.mapping.mapping.getuserlocation",username);
+		return user.getUser_location();
 	}
 
 	JSONObject analyjson(final String address) {

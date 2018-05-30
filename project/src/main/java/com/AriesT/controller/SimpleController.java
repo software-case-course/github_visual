@@ -53,4 +53,17 @@ public class SimpleController {
 		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
+
+	@RequestMapping(value = "/testgetlocation",method = RequestMethod.GET)
+	public String getlocation()throws Exception{
+		String location=service.getlocation("aaa");
+		return location;
+	}
+
+	@RequestMapping(value = "/gettoprepo",method = RequestMethod.GET)
+	public ResultEntity<Map<String,Object>> gettoprepo(String type,String language)throws Exception{
+		Map<String, Object> map = service.getrepo(type,language);
+		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
 }
