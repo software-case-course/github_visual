@@ -7,29 +7,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Base64.Encoder;
 
-import com.AriesT.Entity.Repository;
-import com.AriesT.Entity.User;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.AriesT.Entity.Data_Language_Use;
+import com.AriesT.Entity.RepoLanguageCount;
 import com.AriesT.Entity.RepositoryInfo;
-import com.AriesT.dao.Mapper;
+//import com.AriesT.dao.Mapper;
 
 @Service
-public class JsonService extends SqlSessionDaoSupport{
+public class JsonService{
 
 	static final String[] languages = { "Java", "Python", "HTML", "JavaScript", "PHP", "Ruby", "CSS", "C++", "C#",
 			"TypeScript" };
@@ -55,23 +46,16 @@ public class JsonService extends SqlSessionDaoSupport{
 
 	static Logger logger;
 	static {
-		logger = Logger.getLogger(JsonService.class);
-		BasicConfigurator.configure();
-		logger.setLevel(Level.INFO);
-	}
-	
-	@Autowired
-	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-		super.setSqlSessionFactory(sqlSessionFactory);
+		logger = Logger.getLogger("com.AriesT");
 	}
 
-	@Autowired
-	private Mapper mapper;
-	
+	// @Autowired//用xml代替
+	// private Mapper mapper;
+
 	public Map<String, Object> CheckLanguageUseByYear() throws Exception {
 		Map<String, Object> map = new HashMap<>();
 
-		ArrayList<Data_Language_Use> datas = new ArrayList<>();
+		ArrayList<RepoLanguageCount> datas = new ArrayList<>();
 
 		for (int i = 0; i < languages.length; i++) {
 			for (int j = 0; j < years.length; j++) {
@@ -85,10 +69,10 @@ public class JsonService extends SqlSessionDaoSupport{
 					@Override
 					public void run() {
 						JSONObject JSONObject = analyjson(request);
-						Data_Language_Use data = null;
+						RepoLanguageCount data = null;
 						synchronized (datas) {
 							if (JSONObject != null) {
-								data = new Data_Language_Use(language, year, "",
+								data = new RepoLanguageCount(language, year, "",
 										(Integer) JSONObject.get("total_count"));
 								datas.add(data);
 							} else {
@@ -97,7 +81,6 @@ public class JsonService extends SqlSessionDaoSupport{
 						}
 					}
 				});
-				Thread.sleep(300);
 				thread.run();
 			}
 		}
@@ -110,7 +93,7 @@ public class JsonService extends SqlSessionDaoSupport{
 
 	public Map<String, Object> CheckLanguageUseByMonth(String year) throws Exception {
 		Map<String, Object> map = new HashMap<>();
-		ArrayList<Data_Language_Use> datas = new ArrayList<>();
+		ArrayList<RepoLanguageCount> datas = new ArrayList<>();
 
 		for (int i = 0; i < languages.length; i++) {
 			for (int j = 0; j < daysofmonth.size(); j++) {
@@ -124,10 +107,10 @@ public class JsonService extends SqlSessionDaoSupport{
 					@Override
 					public void run() {
 						JSONObject jsonObject = analyjson(request);
-						Data_Language_Use data = null;
+						RepoLanguageCount data = null;
 						synchronized (datas) {
 							if (jsonObject != null) {
-								data = new Data_Language_Use(language, year, month,
+								data = new RepoLanguageCount(language, year, month,
 										(Integer) jsonObject.get("total_count"));
 								datas.add(data);
 							} else {
@@ -153,13 +136,13 @@ public class JsonService extends SqlSessionDaoSupport{
 
 		for (int j = 1; j <= 5; j++) {
 			String request = "https://api.github.com/search/repositories?q=" + type + ":>1000&sort=" + type
-					+ "&per_page=100&page="+ j;
+					+ "&per_page=100&page=" + j;
 			JSONObject jsonObject = analyjson(request);
 			JSONObject insideObject = null;
-			
+
 			if (jsonObject != null) {
 				JSONArray array = jsonObject.getJSONArray("items");
-				for (int i = 0; i < array.length(); i++) {//json数组
+				for (int i = 0; i < array.length(); i++) {// json数组
 					insideObject = array.getJSONObject(i);
 
 					String fullname = insideObject.getString("full_name");
@@ -173,7 +156,7 @@ public class JsonService extends SqlSessionDaoSupport{
 						@Override
 						public void run() {
 							JSONObject userObject = analyjson(userJson);
-							if (userObject != null) {
+							if (userObject != null) { //也不清楚究竟得不到时返回什么就直接if下了
 								String region = userObject.get("location") instanceof java.lang.String
 										? userObject.getString("location")
 										: "";
@@ -202,44 +185,6 @@ public class JsonService extends SqlSessionDaoSupport{
 
 		return map;
 	}
-	
-	public Map<String, Object> test() throws Exception {
-		List<Data_Language_Use> list = new ArrayList<>();
-		for (int i = 0; i < 100; i++) {
-			list.add(new Data_Language_Use(String.valueOf(i), "asd", "sad", i));
-		}
-		SqlSession sqlSession = this.getSqlSession();
-		sqlSession.insert("com.AriesT.mapping.mapping.insertyear", list);
-		return new HashMap<>();
-	}
-
-	public Map<String,Object> getrepo(String type,String lang) throws Exception{
-        Map<String, Object> map = new HashMap<>();
-	    List<Repository> list=new ArrayList<>();
-	    SqlSession sqlSession=this.getSqlSession();
-	    if(lang==null){
-	        if(type.equals("stars"))
-	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getallrepobystars");
-	        else
-	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getallrepobyforks");
-        }
-        else{
-	        if(type.equals("stars"))
-	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getlangrepobystars",lang);
-	        else
-	            list=sqlSession.selectList("com.AriesT.mapping.mapping.getlangrepobyforks",lang);
-        }
-        map.put("num",list.size());
-	    map.put("datas",list);
-	    map.put("info",null);
-	    return map;
-    }
-
-	public String getlocation(String username) throws Exception{
-		SqlSession sqlSession=this.getSqlSession();
-		User user=sqlSession.selectOne("com.AriesT.mapping.mapping.getuserlocation",username);
-		return user.getUser_location();
-	}
 
 	JSONObject analyjson(final String address) {
 		JSONObject json = null;
@@ -253,7 +198,7 @@ public class JsonService extends SqlSessionDaoSupport{
 			String tokens = token + ":x-oauth-basic";
 			Encoder encoder = Base64.getEncoder();
 			String authString = "Basic " + encoder.encodeToString(tokens.getBytes());
-			httpURLConnection.setRequestProperty("Authorization", authString);//验证
+			httpURLConnection.setRequestProperty("Authorization", authString);// 验证
 
 			int response = httpURLConnection.getResponseCode();
 			boolean redircet = false;
