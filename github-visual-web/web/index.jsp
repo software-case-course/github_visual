@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 2018/4/12
-  Time: 11:17
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -95,10 +88,6 @@
       <a class="options" href="partials/geometry.jsp">Filtered by region</a>
     </p>--%>
 </div>
-
-<footer class="footer navbar-fixed-bottom ">
-  <p>&copy;Developed by BoldArialBlack.</p>
-</footer>
 
 </body>
 
