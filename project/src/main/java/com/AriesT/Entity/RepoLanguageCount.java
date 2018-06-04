@@ -66,6 +66,12 @@ public class RepoLanguageCount {
 		this.data = new Data(year, month, number);
 	}
 
+	public RepoLanguageCount(String language, String year, Integer number) {
+		super();
+		this.language = language;
+		this.data = new Data(year, number);
+	}
+
 	@Override
 	public String toString() {
 		return "Data_Language_Use [language=" + language + ", data=" + data + "]";
@@ -110,6 +116,11 @@ public class RepoLanguageCount {
 			this.year = year;
 			this.month = month;
 			this.number = number;
+		}
+
+		public Data(String year2, Integer number2) {
+			this.year = year2;
+			this.number = number2;
 		}
 	}
 

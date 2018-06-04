@@ -43,14 +43,15 @@
 		</foreach>
 	</update>
 
+<!-- 特定sql操作 -->
 
-	<insert id="insertyear" parameterType="List">
-		insert into RepoLanguageCount (language, year, month, number) values
-		<foreach collection="list" item="Data_Language_Use" index="index" separator=",">
-			( #{Data_Language_Use.language}, #{Data_Language_Use.data.year},
-			#{Data_Language_Use.data.month}, #{Data_Language_Use.data.number})
-		</foreach>
-	</insert>
+	<select id="getRepoLanguageCountByYear" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where month = '';
+	</select>
+	
+	<select id="getRepoLanguageCountByMonth" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where month = #{year};
+	</select>
 	
 	<delete id="deleteyear">
 		delete from datalanguage;

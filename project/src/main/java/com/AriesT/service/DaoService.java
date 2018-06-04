@@ -25,8 +25,8 @@ public class DaoService extends SqlSessionDaoSupport {
 	
 	@Autowired
 	RepoLanguageCountDao repoLanguageCountDao;
-
-	public Map<String, Object> getrepo(String type, String lang) throws Exception {
+	
+	public Map<String, Object> getHighlyRatedRepositories(String type, String lang) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		List<Repository> list = new ArrayList<>();
 		if (lang == null) {
@@ -40,6 +40,32 @@ public class DaoService extends SqlSessionDaoSupport {
 			else
 				list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getlangrepobyforks", lang);
 		}
+		map.put("num", list.size());
+		map.put("datas", list);
+		map.put("info", null);
+		return map;
+	}
+	
+	public Map<String, Object> getLanguageUseByYear() throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		List<RepoLanguageCount> list = new ArrayList<>();
+		
+		list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getRepoLanguageCountByYear");
+
+		map.put("num", list.size());
+		map.put("datas", list);
+		map.put("info", null);
+		return map;
+	}
+	
+	public Map<String, Object> getLanguageUseByMonth(String year) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		List<RepoLanguageCount> list = new ArrayList<>();
+		
+		map.put("year", year);
+		list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getRepoLanguageCountByMonth", map);
+		
+		map.remove("year");
 		map.put("num", list.size());
 		map.put("datas", list);
 		map.put("info", null);

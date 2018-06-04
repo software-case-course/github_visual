@@ -17,33 +17,54 @@ public class SimpleController {
 
 	@Autowired
 	JsonService jsonservice;
-	
+
 	@Autowired
 	DaoService daoservice;
-	
+
 	static Logger logger;
 	static {
 		logger = Logger.getLogger("com.AriesT");
 	}
 
-	@RequestMapping(value = "/CheckLanguageUseByYear", method = RequestMethod.GET)
-	public ResultEntity<Map<String,Object>> CheckLanguageUseByYear() throws Exception {
-		Map<String, Object> map = jsonservice.CheckLanguageUseByYear();
-		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+	@RequestMapping(value = "/saveLanguageUseByYear", method = RequestMethod.GET)
+	public ResultEntity<Map<String, Object>> saveLanguageUseByYear() throws Exception {
+		Map<String, Object> map = jsonservice.saveLanguageUseByYear();
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
-	
-	@RequestMapping(value = "/CheckLanguageUseByMonth", method = RequestMethod.GET)
-	public ResultEntity<Map<String,Object>> CheckLanguageUseByMonth(String year) throws Exception {
-		Map<String, Object> map = jsonservice.CheckLanguageUseByMonth(year);
-		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+
+	@RequestMapping(value = "/saveLanguageUseByMonth", method = RequestMethod.GET)
+	public ResultEntity<Map<String, Object>> saveLanguageUseByMonth() throws Exception {
+		Map<String, Object> map = jsonservice.saveLanguageUseByMonth();
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
-	
+
+	@RequestMapping(value = "/saveHighlyRatedRepositories", method = RequestMethod.GET)
+	public ResultEntity<Map<String, Object>> saveHighlyRatedRepositories() throws Exception {
+		Map<String, Object> map = jsonservice.saveHighlyRatedRepositories();
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
+
+	@RequestMapping(value = "/getLanguageUseByYear", method = RequestMethod.GET)
+	public ResultEntity<Map<String, Object>> getLanguageUseByYear() throws Exception {
+		Map<String, Object> map = daoservice.getLanguageUseByYear();
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
+
+	@RequestMapping(value = "/getLanguageUseByMonth", method = RequestMethod.GET)
+	public ResultEntity<Map<String, Object>> getLanguageUseByMonth(String year) throws Exception {
+		Map<String, Object> map = daoservice.getLanguageUseByMonth(year);
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
+		return result;
+	}
+
 	@RequestMapping(value = "/getHighlyRatedRepositories", method = RequestMethod.GET)
-	public ResultEntity<Map<String,Object>> getHighlyRatedRepositories(String type) throws Exception {
-		Map<String, Object> map = jsonservice.getHighlyRatedRepositories(type);
-		ResultEntity<Map<String,Object>> result = ResultEntity.SetResultForController(map);
+	public ResultEntity<Map<String, Object>> getHighlyRatedRepositories(String type, String lang) throws Exception {
+		Map<String, Object> map = daoservice.getHighlyRatedRepositories(type, lang);
+		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
 		return result;
 	}
 
@@ -58,10 +79,4 @@ public class SimpleController {
 		return location;
 	}
 
-	@RequestMapping(value = "/gettoprepo", method = RequestMethod.GET)
-	public ResultEntity<Map<String, Object>> gettoprepo(String type, String language) throws Exception {
-		Map<String, Object> map = daoservice.getrepo(type, language);
-		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
-		return result;
-	}
 }
