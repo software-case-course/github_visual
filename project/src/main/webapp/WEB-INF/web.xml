@@ -9,14 +9,18 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
+			classpath:log4j.xml,
 			classpath:spring/application-config.xml,
 			classpath:Spring-Mybatis.xml
 		</param-value>
 	</context-param>
 	
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+	<listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener> 
 	
 	<servlet>
 		<servlet-name>SpringMVC</servlet-name>

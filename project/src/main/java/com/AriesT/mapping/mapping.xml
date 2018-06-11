@@ -2,13 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.AriesT.mapping.mapping">
-	<insert id="insertyear" parameterType="List">
-		insert into datalanguage (language, year, month, number) values
-		<foreach collection="list" item="Data_Language_Use" index="index" separator=",">
-			( #{Data_Language_Use.language}, #{Data_Language_Use.data.year},
-			#{Data_Language_Use.data.month}, #{Data_Language_Use.data.number})
+
+<!-- 基础sql操作  -->
+	<select id="checkifexist" parameterType="java.util.HashMap" resultType="java.lang.Object" >
+		select * from ${basename} where
+		<foreach collection="key" item="item" index="index" open="(" separator="and" close=")">
+			${item} = #{${item}}
 		</foreach>
+		;
+	</select>
+	
+	<insert id="inserttodao" parameterType="java.util.HashMap">
+		insert into ${basename} 
+		<foreach collection="col" item="item" index="index" open="(" separator="," close=")">
+			${item}
+		</foreach>
+ 		values
+ 		<foreach collection="addlist" item="itemlist" index="index" separator=",">
+			<foreach collection="col" item="item" index="index" open="(" separator="," close=")">
+				#{itemlist.${item}}
+			</foreach>
+		</foreach>
+		;
 	</insert>
+	
+	<update id="updatetodao" parameterType="java.util.HashMap">
+		<foreach collection="updatelist" item="itemlist" index="index" separator=";">
+			update
+			${basename}
+			set
+			<foreach collection="col" item="item" index="index" separator=",">
+				${item}
+				=
+				#{itemlist.${item}}
+			</foreach>
+			where
+			<foreach collection="key" item="item" index="index" open="(" separator="and" close=")">
+				${item} = #{itemlist.${item}}
+			</foreach>
+		</foreach>
+	</update>
+
+<!-- 特定sql操作 -->
+
+	<select id="getRepoLanguageCountByYear" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where month = '';
+	</select>
+	
+	<select id="getRepoLanguageCountByMonth" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where month = #{year};
+	</select>
 	
 	<delete id="deleteyear">
 		delete from datalanguage;

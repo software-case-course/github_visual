@@ -2,12 +2,12 @@ package com.AriesT.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({ "handler","hibernateLazyInitializer" })  
-public class Data_Language_Use {
+@JsonIgnoreProperties({ "handler", "hibernateLazyInitializer" })
+public class RepoLanguageCount {
 
 	String language;
 	Data data;
-	
+
 	public String getLanguage() {
 		return language;
 	}
@@ -23,24 +23,53 @@ public class Data_Language_Use {
 	public void setData(Data data) {
 		this.data = data;
 	}
-	
+
 	public void setData(String year, String month, Integer number) {
 		this.data.year = year;
 		this.data.month = month;
 		this.data.number = number;
 	}
-	
-	
-	public Data_Language_Use(String language, Data data) {
+
+	public String getYear() {
+		return data.year;
+	}
+
+	public void setYear(String year) {
+		this.data.setYear(year);
+	}
+
+	public String getMonth() {
+		return data.month;
+	}
+
+	public void setMonth(String month) {
+		this.data.setMonth(month);
+	}
+
+	public Integer getNumber() {
+		return data.number;
+	}
+
+	public void setNumber(Integer number) {
+		this.data.setNumber(number);
+	}
+
+	public RepoLanguageCount(String language, Data data) {
 		super();
 		this.language = language;
 		this.data = data;
 	}
 
-	public Data_Language_Use(String language, String year, String month, Integer number) {
+	public RepoLanguageCount(String language, String year, String month, Integer number) {
 		super();
 		this.language = language;
 		this.data = new Data(year, month, number);
+	}
+
+	public RepoLanguageCount(String language, String year, Integer number) {
+		super();
+		this.language = language;
+		this.data = new Data(year, number);
 	}
 
 	@Override
@@ -48,8 +77,8 @@ public class Data_Language_Use {
 		return "Data_Language_Use [language=" + language + ", data=" + data + "]";
 	}
 
-	class Data {
-		
+	public class Data {
+
 		@Override
 		public String toString() {
 			return "Data [year=" + year + ", month=" + month + ", number=" + number + "]";
@@ -87,6 +116,11 @@ public class Data_Language_Use {
 			this.year = year;
 			this.month = month;
 			this.number = number;
+		}
+
+		public Data(String year2, Integer number2) {
+			this.year = year2;
+			this.number = number2;
 		}
 	}
 
