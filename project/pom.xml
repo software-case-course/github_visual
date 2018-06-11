@@ -158,6 +158,14 @@
 			<artifactId>commons-dbcp</artifactId>  
 			<version>1.4</version>  
 	    </dependency>  
+	    
+	    <!-- https://mvnrepository.com/artifact/org.apache.oltu.oauth2/org.apache.oltu.oauth2.client -->
+		<dependency>
+		    <groupId>org.apache.oltu.oauth2</groupId>
+		    <artifactId>org.apache.oltu.oauth2.client</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+	    
 		
 	</dependencies>
 

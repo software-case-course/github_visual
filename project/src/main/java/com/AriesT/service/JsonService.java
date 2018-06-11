@@ -1,15 +1,15 @@
 package com.AriesT.service;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Base64.Encoder;
-
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,7 +22,7 @@ import com.AriesT.dao.HighlyRatedRepositoriesDao;
 import com.AriesT.dao.RepoLanguageCountDao;
 
 @Service
-public class JsonService{
+public class JsonService {
 
 	static final String[] languages = { "Java", "Python", "HTML", "JavaScript", "PHP", "Ruby", "CSS", "C%2B%2B", "C#",
 			"TypeScript" };
@@ -44,16 +44,21 @@ public class JsonService{
 			put("12", "31");
 		}
 	};
-	static final String token = "a9bdaa95ec7438c97cb9a11d982043a02a7633c6";
+	// static final String token = "a9bdaa95ec7438c97cb9a11d982043a02a7633c6";
+
+	static final String clientId = "4f16520c1d7b59b65c8a";
+	static final String clientSecret = "d3b7c7c6736545ae66d3548b23a29d34075260de";
 
 	static Logger logger;
 	static {
 		logger = Logger.getLogger("com.AriesT");
 	}
-	
+
+	static int threadcount = 0;
+
 	@Autowired
 	RepoLanguageCountDao repoLanguageCountDao;
-	
+
 	@Autowired
 	HighlyRatedRepositoriesDao highlyRatedRepositoriesDao;
 
@@ -71,7 +76,6 @@ public class JsonService{
 				String year = years[j];
 				String request = "https://api.github.com/search/repositories?q=language:" + language + "+created:"
 						+ year + "-01-01.." + year + "-12-31&per_page=1";
-				logger.info(request);
 
 				Thread thread = new Thread(new Runnable() {
 					@Override
@@ -87,14 +91,20 @@ public class JsonService{
 								logger.warn("未获取到json");
 							}
 						}
+						threadcount--;
+						logger.info(threadcount);
 					}
 				});
-				thread.run();
+				while (threadcount > 10) {
+					Thread.sleep(200);
+				}
+				threadcount++;
+				thread.start();
 			}
 		}
-		
+
 		repoLanguageCountDao.inserttodao(datas);
-		
+
 		map.put("num", datas.size());
 		map.put("data", null);
 		map.put("info", null);
@@ -130,14 +140,18 @@ public class JsonService{
 									logger.warn("未获取到json");
 								}
 							}
+							threadcount--;
 						}
 					});
-					Thread.sleep(300);
-					thread.run();
+					while (threadcount > 10) {
+
+					}
+					threadcount++;
+					thread.start();
 				}
 			}
 		}
-		
+
 		repoLanguageCountDao.inserttodao(datas);
 
 		map.put("num", datas.size());
@@ -150,7 +164,7 @@ public class JsonService{
 	public Map<String, Object> saveHighlyRatedRepositories() {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<Repository> datas = new ArrayList<>();
-		String[] types = {"stars","forks"};
+		String[] types = { "stars", "forks" };
 
 		for (int k = 0; k < types.length; k++) {
 			for (int j = 1; j <= 5; j++) {
@@ -177,7 +191,7 @@ public class JsonService{
 							@Override
 							public void run() {
 								JSONObject userObject = analyjson(userJson);
-								if (userObject != null) { //也不清楚究竟得不到时返回什么就直接if下了
+								if (userObject != null) { // 也不清楚究竟得不到时返回什么就直接if下了
 									String region = userObject.get("location") instanceof java.lang.String
 											? userObject.getString("location")
 											: "";
@@ -191,27 +205,36 @@ public class JsonService{
 										datas.add(data);
 									}
 								}
+								threadcount--;
 							}
 						});
-						thread.run();
+						while (threadcount > 10) {
+
+						}
+						threadcount++;
+						thread.start();
 					}
 				} else {
 					logger.warn("未获取到json");
 				}
 			}
 		}
-		
+
 		highlyRatedRepositoriesDao.inserttodao(datas);
-		
+
 		map.put("num", datas.size());
 		map.put("data", null);
 		map.put("info", null);
 
 		return map;
 	}
-	
-	JSONObject analyjson(final String address) {
-		JSONObject json = null;
+
+	JSONObject analyjson(String address) {
+		address += "&client_id=" + clientId + "&client_secret=" + clientSecret;// 加个认证
+		logger.info(address);
+		JSONObject json = new JSONObject();
+		json.put("message", "");
+		
 		int response = 0;
 		try {
 			URL url = new URL(address);
@@ -220,10 +243,10 @@ public class JsonService{
 			httpURLConnection.setReadTimeout(5000);
 			httpURLConnection.setInstanceFollowRedirects(false);
 
-			String tokens = token + ":x-oauth-basic";
-			Encoder encoder = Base64.getEncoder();
-			String authString = "Basic " + encoder.encodeToString(tokens.getBytes());
-			httpURLConnection.setRequestProperty("Authorization", authString);// 验证
+			// String tokens = token + ":x-oauth-basic";
+			// Encoder encoder = Base64.getEncoder();
+			// String authString = "Basic " + encoder.encodeToString(tokens.getBytes());
+			// httpURLConnection.setRequestProperty("Authorization", authString);// 验证
 
 			response = httpURLConnection.getResponseCode();
 			boolean redircet = false;
@@ -239,10 +262,10 @@ public class JsonService{
 				httpURLConnection.setRequestProperty("Cookie", cookies);
 				logger.info("Redirect to URL : " + newUrl);
 			}
-
 			if (response == HttpURLConnection.HTTP_OK || redircet) {
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+				logger.info("remain"+httpURLConnection.getHeaderField("X-RateLimit-Remaining"));
 
 				StringBuffer stringBuffer = new StringBuffer();
 				String string = null;
@@ -254,14 +277,14 @@ public class JsonService{
 
 				json = new JSONObject(stringBuffer.toString());
 			} else {
-				
+				logger.warn("未获得json" + response + "    " + json.getString("message"));
 				json = null;
 			}
 		} catch (Exception e) {
-			logger.error("json获取失败" + response);
+			logger.warn("错误" + response + "    " + json.getString("message"));
+			json = null;
 		}
 		return json;
 	}
-
 
 }
