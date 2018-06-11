@@ -31,32 +31,26 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body onload="loadDataByYear()">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Github Visualization</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">IT IS A SPAN</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="../index.jsp">Home<span class="sr-only">(current)</span></a>
-            </li>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="../index.html">Github Visualization</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="time.jsp">Time</a>
+                <a class="nav-link" href="../index.html#">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="geometry.jsp">district</a>
-            </li>
+                <a class="nav-link" href="rank.jsp">Repository Rank</a>
             <li class="nav-item">
-              <a class="nav-link" href="rank.jsp">Language Rank</a>
-              </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="trend.jsp">Language Trend</a>
+                <a class="nav-link" href="trend.jsp">Language Trend</a>
             </li>
-          </ul>
-        </div>
-      </nav>
+        </ul>
+    </div>
+</nav>
 
     <div id="container" style="height: 500px; margin-top: 50px"></div>
     <form style="padding: 20px">
@@ -74,41 +68,64 @@
     function loadDataByYear() {
         myChart.showLoading();
         this.Series = [];
-        $.get('../test/checkByYear.json').done(function (result) {
-
+        $.get('../test/CheckLanguageUseByYear.json').done(function (res) {
             myChart.hideLoading();
+            /*  myChart.hideLoading();
 
-            // console.log(result);
-            // data = eval('('+result+')');
+              // console.log(result);
+              // data = eval('('+result+')');
 
+              var len = result.length;
+
+              var data = [];
+              var languages = [];
+              var datas = [];
+              for (var i = 0; i < len; i++) {
+                  var item = result[i];
+                  // console.log(item.language);
+                  languages.push(item.language);
+                  // console.log(item);
+                  data = [];
+                  var temp = item.data;
+                  // console.log(temp);
+                  for (var j = 0; j < temp.length; j++) {
+                      data.push(temp[j].num);
+                  }
+                  // console.log(data);
+                  datas[i] = data;
+              }
+              // console.log(datas);
+              // console.log(languages);*/
+
+            var result = res.data.data;
             var len = result.length;
 
             var data = [];
             var languages = [];
-            var datas = [];
+            var lastpos = ''
+
             for (var i = 0; i < len; i++) {
                 var item = result[i];
-                // console.log(item.language);
-                languages.push(item.language);
-                // console.log(item);
-                data = [];
-                var temp = item.data;
-                // console.log(temp);
-                for (var j = 0; j < temp.length; j++) {
-                    data.push(temp[j].num);
+
+                var isExist = languages.indexOf(item.language);
+
+                if (isExist === -1) {
+                    if (lastpos !== '')
+                        datas[lastpos] = data;
+                    languages.push(item.language);
+                    data = [];
+                    lastpos = item.language;
                 }
-                // console.log(data);
-                datas[i] = data;
+                var temp = item.data;
+                data.push(temp.number);
             }
-            // console.log(datas);
-            // console.log(languages);
 
             for (var k = 0; k < languages.length; k++) {
                 var temp = {
                     name: languages[k],
                     // type: 'line',
                     type: 'bar',
-                    data: datas[k],
+                    data: datas[languages[k]],
                     animationDelay: function (idx) {
                         return idx * 10 + 200;
                     }
@@ -130,41 +147,40 @@
     function loadDataByMonth() {
         myChart.showLoading();
         this.Series = [];
-        $.get('../test/checkByMonth.json').done(function (result) {
-
+        $.get('../test/CheckLanguageUseByMonth.json').done(function (res) {
             myChart.hideLoading();
 
-            // console.log(result);
-            // data = eval('('+result+')');
-
+            var result = res.data.data;
             var len = result.length;
 
             var data = [];
             var languages = [];
-            var datas = [];
+            var lastpos = ''
+
             for (var i = 0; i < len; i++) {
                 var item = result[i];
-                // console.log(item.language);
-                languages.push(item.language);
-                // console.log(item);
-                data = [];
-                var temp = item.data;
-                // console.log(temp);
-                for (var j = 0; j < temp.length; j++) {
-                    data.push(temp[j].num);
+
+                var isExist = languages.indexOf(item.language);
+                if (isExist === -1) {
+                    if (lastpos !== '')
+                        datas[lastpos] = data;
+                    languages.push(item.language);
+                    data = [];
+                    lastpos = item.language;
                 }
-                // console.log(data);
-                datas[i] = data;
+
+                var temp = item.data;
+                data.push(temp.number);
             }
-            // console.log(datas);
-            // console.log(languages);
+
+            console.log(datas);
 
             for (var k = 0; k < languages.length; k++) {
                 var temp = {
                     name: languages[k],
                     type: 'bar',
                     // type: 'line',
-                    data: datas[k],
+                    data: datas[languages[k]],
                     animationDelay: function (idx) {
                         return idx * 10 + 200;
                     }
@@ -185,13 +201,13 @@
     function selectOnchang(obj) {
         var value = obj.options[obj.selectedIndex].value;
         // alert(value);
-        if (value == "CheckLanguageUseByYear") {
+        if (value === "CheckLanguageUseByYear") {
             // alert("CheckLanguageUseByYear 2");
             xAxisData = [];
             this.datas = [];
             this.Series = [];
-            for (var i = 0; i <= 5; i++) {
-                xAxisData.push(2013 + i);
+            for (var i = 0; i <= 10; i++) {
+                xAxisData.push(2008 + i);
             }
             myChart.setOption({
                 xAxis: {
@@ -201,7 +217,7 @@
 
             loadDataByYear();
 
-        } else if (value == "CheckLanguageUseByMonth") {
+        } else if (value === "CheckLanguageUseByMonth") {
             // alert("CheckLanguageUseByMonth 2");
             xAxisData = [];
             this.datas = [];
@@ -240,8 +256,8 @@
     var datas = [];
     var Series = [];
 
-    for (var i = 0; i <= 5; i++) {
-        xAxisData.push(2013 + i);
+    for (var i = 0; i <= 10; i++) {
+        xAxisData.push(2008 + i);
     }
 
     myChart.setOption({

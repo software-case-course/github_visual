@@ -11,7 +11,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        Github Visualization - Rank
+        Github Visualization - Repository Rank
     </title>
 
     <style>
@@ -30,8 +30,6 @@
             opacity: 1;
         }
     </style>
-   
-
 
     <script src="../lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
@@ -57,31 +55,25 @@
 <script src="../js/d3.min.js"></script>
 
 <%--<body onload="loadData('stars')">--%>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Github Visualization</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">IT IS A SPAN</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="../index.jsp">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="time.jsp">Time</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="geometry.jsp">district</a>
-            </li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="../index.html">Github Visualization</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="rank.jsp">Language Rank</a>
-            <li class="nav-item">
-              <a class="nav-link" href="trend.jsp">Language Trend</a>
+                <a class="nav-link" href="../index.html#">Home<span class="sr-only">(current)</span></a>
             </li>
-          </ul>
-        </div>
-      </nav>
+            <li class="nav-item">
+                <a class="nav-link active" href="rank.jsp">Repository Rank</a>
+            <li class="nav-item">
+                <a class="nav-link" href="trend.jsp">Language Trend</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <div class="jumbotron jumbotron-fluid" id="div1">
         <div class="container" >
@@ -92,170 +84,20 @@
         </div>
       </div>
 
-<div class="container" style="margin-top: 50px">
-<div class="row">
-
+<div class="row" style="margin: 30px">
     <div class="col-md-6">
-        <script>
-            var width  = 500;
-            var height = 500;
-            var speed = 0.02;
-            var startTime = Date.now();
-            var currentTime = Date.now();
-
-
-            var svg = d3.select("body").append("svg")
-                .attr("width", width)
-                .attr("height", height);
-
-            $("svg").css({top: 500, left: 500, position:'absolute'});
-
-            var projection = d3.geo.orthographic()
-                .scale(230);
-
-            var graticule = d3.geo.graticule();
-
-            var path = d3.geo.path()
-                .projection(projection);
-
-            var color = d3.scale.category20();
-
-            svg.append("text")
-                .attr("id","loading")
-                .attr("x",width/2)
-                .attr("y",height/2)
-                .text("Now Loading...");
-
-
-            d3.json("../js/world_605kb.json", function(error, root) {
-                if (error)
-                    return console.error(error);
-                console.log(root);
-
-                var grid = graticule();
-
-                console.log(grid);
-
-                var map = svg.append("g")
-                <%--        .attr("transform", "translate(-230 -20"); --%>
-                    .attr("transform", "translate(" +  -230 + "," + -20 + ")");
-
-                map.append("path")
-                    .datum( grid )
-                    .attr("id","grid_id")
-                    .attr("class","grid_path")
-                    .attr("d",path);
-
-                map.selectAll(".map_path")
-                    .data( root.features )
-                    .enter()
-                    .append("path")
-                    .attr("class","map_path")
-                    .attr("fill",function(d,i){
-                        return color(i);
-                    })
-                    .attr("d", path )
-                    .on("mouseover",function(d,i){
-                        d3.select(this)
-                            .attr("fill","yellow");
-                    })
-                    .on("mouseout",function(d,i){
-                        d3.select(this)
-                            .attr("fill",color(i));
-                    });
-
-                svg.select("#loading")
-                    .attr("opacity",0);
-
-                d3.timer(function() {
-
-                    currentTime = Date.now();
-
-                    projection.rotate([speed * (currentTime - startTime), -15]).clipAngle(90);
-
-                    map.select("#grid_id")
-                        .attr("d",path);
-
-                    map.selectAll(".map_path")
-                        .attr("d",path);
-
-
-                });
-
-            });
-
-
-        </script>
+        <div id="globe"></div>
     </div>
-
-    <div class="col-md-6 ">
-        <%--
-                    <form style="padding: 20px">
-                        <div class="form-group row">
-                            <label for="FormControlSelect" class="col-sm-2">Order</label>
-                            <select class="form-control col-sm-4" id="FormControlSelect" onchange="selectOnchang(this)">
-                                <option value="stars">Stars</option>
-                                <option value="forks">Forks</option>
-                            </select>
-                        </div>
-                    </form>--%>
-
-        <%-- <form>
-             <div class="form-check">
-                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
-             </div>
-             <div class="form-check">
-                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                 <label class="form-check-label" for="defaultCheck1">Default checkbox</label>
-             </div>
-         </form>--%>
-
+    <div class="col-md-6">
         <form>
             <div class="form-group row">
-                <label for="FormControlOrderSelect" class=" col-md-6">Order</label>
+                <label for="FormControlOrderSelect" class="col-md-6">Order</label>
                 <select class="form-control col-md-6" id="FormControlOrderSelect" onchange="selectOnchang(this)">
                     <option value="stars">Stars</option>
                     <option value="forks">Forks</option>
                 </select>
             </div>
-
-
-            <%-- <div class="form-group col-md-6">
-                 <label for="FormControlLanguageSelect">Language</label>
-                 <select class="form-control" id="FormControlLanguageSelect" data-filter-control="select">
-                     <option value="all">All</option>
-                     <option value="all">C</option>
-                     <option value="all">C++</option>
-                     <option value="all">Java</option>
-                     <option value="all">JavaScript</option>
-                     <option value="all">Python</option>
-                     <option value="all">HTML</option>
-                     <option value="all">Ruby</option>
-                 </select>
-             </div>--%>
         </form>
-        <div id="toolbar" class="col-md-6"></div>
-
-
-        <%-- <div class="toolbar container"></div>
-
-
-                 <table id="tb_rank" class="table" data-toggle="table" data-filter-control="true">
-                     <thead>
-                     &lt;%&ndash;<tr>
-                         &lt;%&ndash;<th scope="col">世界排名</th>&ndash;%&gt;
-                         <th data-field="fullName">仓库名</th>
-                         <th data-field="num">数量</th>
-                         <th data-field="language" data-filter-control="select">使用语言</th>
-                         <th data-field="region" data-filter-control="select">位置</th>
-                     </tr>&ndash;%&gt;
-                     </thead>
-                     <tbody id="tbody-result">
-                     </tbody>
-                 </table>
-             </div>
-         </div>--%>
 
         <table id="table" data-filter-control="true" data-filter-show-clear="true">
             <thead>
@@ -268,14 +110,98 @@
             </thead>
         </table>
     </div>
+</div>
 
-</div>
-</div>
 
 <script>
-    var $table = $('#table'),
-        $ok = $('#ok'),
-        $defaultOption = {};
+    var width = 500;
+    var height = 500;
+    var speed = 0.02;
+    var startTime = Date.now();
+    var currentTime = Date.now();
+
+    var svg = d3.select('#globe').append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    $("svg").css({top: 110, left: 50, position: 'relative'});
+
+    var projection = d3.geo.orthographic()
+        .scale(230);
+
+    var graticule = d3.geo.graticule();
+
+    var path = d3.geo.path()
+        .projection(projection);
+
+    var color = d3.scale.category20();
+
+    svg.append("text")
+        .attr("id", "loading")
+        .attr("x", width / 2)
+        .attr("y", height / 2)
+        .text("Now Loading...");
+
+
+    d3.json("../js/world_605kb.json", function (error, root) {
+        if (error)
+            return console.error(error);
+        console.log(root);
+
+        var grid = graticule();
+
+        console.log(grid);
+
+        var map = svg.append("g")
+        <%--        .attr("transform", "translate(-230 -20"); --%>
+            .attr("transform", "translate(" + -230 + "," + -20 + ")");
+
+        map.append("path")
+            .datum(grid)
+            .attr("id", "grid_id")
+            .attr("class", "grid_path")
+            .attr("d", path);
+
+        map.selectAll(".map_path")
+            .data(root.features)
+            .enter()
+            .append("path")
+            .attr("class", "map_path")
+            .attr("fill", function (d, i) {
+                return color(i);
+            })
+            .attr("d", path)
+            .on("mouseover", function (d, i) {
+                d3.select(this)
+                    .attr("fill", "yellow");
+            })
+            .on("mouseout", function (d, i) {
+                d3.select(this)
+                    .attr("fill", color(i));
+            });
+
+        svg.select("#loading")
+            .attr("opacity", 0);
+
+        d3.timer(function () {
+            currentTime = Date.now();
+
+            projection.rotate([speed * (currentTime - startTime), -15]).clipAngle(90);
+
+            map.select("#grid_id")
+                .attr("d", path);
+
+            map.selectAll(".map_path")
+                .attr("d", path);
+
+        });
+    });
+
+</script>
+
+<script>
+    var $table = $('#table');
+
     $(function () {
         $table.bootstrapTable({
             url: '../test/orderByStars.json',         //请求后台的URL（*）
@@ -335,11 +261,15 @@
         //     queryParams: queryParams
         // }));
 
-        $table.bootstrapTable('refresh');
-        /*  $('#table').bootstrapTable({
-              queryParams: queryParams,
-              url: '../test/orderByStars'
-          });*/
+        if (value === 'stars') {
+            $table.bootstrapTable('refresh', {
+                url: '../test/orderByStars.json'
+            });
+        } else if (value === 'forks') {
+            $table.bootstrapTable('refresh', {
+                url: '../test/orderByForks.json'
+            });
+        }
 
         // alert(value);
     }

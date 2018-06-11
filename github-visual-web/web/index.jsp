@@ -46,7 +46,6 @@
       <li class="nav-item">
         <a class="nav-link" href="impls/trend.jsp">Language Trend</a>
       </li>
-      </li>
     </ul>
   </div>
 </nav>
@@ -81,7 +80,7 @@
   </div>
 
   <div class="container" align="center" style="padding: 50px">
-    <button type="button" class="btn btn-primary btn-lg" href="#">Repository Visualization</button>
+    <button type="button" class="btn btn-primary btn-lg" href="impls/repo_name.jsp">Repository Visualization</button>
   </div>
   <%--  <p class="head" style="margin-top: 50px">
       <a class="options" href="partials/time.jsp">Filtered by date</a>
