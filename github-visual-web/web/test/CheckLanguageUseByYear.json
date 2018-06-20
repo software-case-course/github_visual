@@ -230,6 +230,14 @@
       {
         "language": "JavaScript",
         "data": {
+          "year": "2013",
+          "month": "",
+          "number": 274653
+        }
+      },
+      {
+        "language": "JavaScript",
+        "data": {
           "year": "2014",
           "month": "",
           "number": 450423
@@ -382,9 +390,49 @@
       {
         "language": "Ruby",
         "data": {
+          "year": "2014",
+          "month": "",
+          "number": 202866
+        }
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 237062
+        }
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 247871
+        }
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 272859
+        }
+      },
+      {
+        "language": "Ruby",
+        "data": {
           "year": "2018",
           "month": "",
-          "number": 121396
+          "number": 128291
+        }
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 83
         }
       },
       {
@@ -556,6 +604,38 @@
         }
       },
       {
+        "language": "C#",
+        "data": {
+          "year": "2013",
+          "month": "",
+          "number": 936142
+        }
+      },
+      {
+        "language": "C#",
+        "data": {
+          "year": "2014",
+          "month": "",
+          "number": 936142
+        }
+      },
+      {
+        "language": "C#",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 936142
+        }
+      },
+      {
+        "language": "C#",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 936142
+        }
+      },
+      {
         "language": "TypeScript",
         "data": {
           "year": "2008",
@@ -609,6 +689,14 @@
           "year": "2014",
           "month": "",
           "number": 3470
+        }
+      },
+      {
+        "language": "TypeScript",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 6167
         }
       },
       {

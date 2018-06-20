@@ -20,6 +20,14 @@
         }
       },
       {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 128378
+        }
+      },
+      {
         "language": "Python",
         "data": {
           "year": "2017",
@@ -55,6 +63,22 @@
         "language": "PHP",
         "data": {
           "year": "2017",
+          "month": "10",
+          "number": 41803
+        }
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 42397
+        }
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
           "month": "12",
           "number": 37229
         }
@@ -73,6 +97,22 @@
           "year": "2017",
           "month": "11",
           "number": 42030
+        }
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 119372
+        }
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 116742
         }
       },
       {
@@ -137,6 +177,22 @@
           "year": "2017",
           "month": "12",
           "number": 20635
+        }
+      },
+      {
+        "language": "C#",
+        "data": {
+          "year": "2017",
+          "month": "1",
+          "number": 936130
+        }
+      },
+      {
+        "language": "C#",
+        "data": {
+          "year": "2017",
+          "month": "2",
+          "number": 936130
         }
       },
       {
@@ -217,6 +273,14 @@
           "year": "2017",
           "month": "12",
           "number": 933439
+        }
+      },
+      {
+        "language": "TypeScript",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 21108
         }
       },
       {
