@@ -1,12 +1,14 @@
 D:\GithubVisualize\project\src\main\java\com\AriesT\dao\Mapper.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\dao\RepoLanguageCountDao.java
+D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\ResultEntity.java
+D:\GithubVisualize\project\src\main\java\com\AriesT\service\JsonService.java
+D:\GithubVisualize\project\src\main\java\com\AriesT\service\DaoService.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\User.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\controller\SimpleController.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\dao\BaseDao.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\Repository.java
-D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\ResultEntity.java
+D:\GithubVisualize\project\src\main\java\com\AriesT\controller\AuthenticationController.java
+D:\GithubVisualize\project\src\main\java\com\AriesT\dao\HighlyRatedRepositoriesDao.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\RepositoryInfo.java
-D:\GithubVisualize\project\src\main\java\com\AriesT\service\JsonService.java
-D:\GithubVisualize\project\src\main\java\com\AriesT\service\DaoService.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\controller\ExceptionHandler.java
 D:\GithubVisualize\project\src\main\java\com\AriesT\Entity\RepoLanguageCount.java
