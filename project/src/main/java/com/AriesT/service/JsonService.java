@@ -114,6 +114,14 @@ public class JsonService {
 						+ year + "-01-01.." + year + "-12-31&per_page=1";
 
 				if (tp.isShutdown()) {// 直接返回
+					if (year_year != 0) {
+						year_year--;
+					} else if (language_year != 0) {
+						year_year = years.length - 1;
+						language_year--;
+					} else {
+						//应该不会发生
+					}
 					break over;
 				}
 				Runnable runnable = new Runnable() {
@@ -146,7 +154,7 @@ public class JsonService {
 		repoLanguageCountDao.inserttodao(datas);
 
 		map.put("num", datas.size());
-		map.put("data", null);
+		map.put("data", datas);
 		map.put("info", null);
 
 		return map;
@@ -156,7 +164,8 @@ public class JsonService {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<RepoLanguageCount> datas = new ArrayList<>();
 
-		over: for (; language_month < languages.length; language_month++) {
+		over: 
+		for (; language_month < languages.length; language_month++) {
 			for (; year_month < years.length; year_month++) {
 				for (int i = 0; i < daysofmonth.size(); i++) {
 					String language = languages[language_month];
@@ -168,6 +177,18 @@ public class JsonService {
 							+ year + "-" + month + "-01.." + year + "-" + month + "-" + day + "&per_page=1";
 
 					if (tp.isShutdown()) {// 直接返回
+						if (i != 0) {
+							i--;
+						} else if (year_month != 0) {
+							i = daysofmonth.size() - 1;
+							year_month--;
+						} else if (language_month != 0) {
+							i = daysofmonth.size() - 1;
+							year_month = years.length - 1;
+							language_month--;
+						} else {
+							//应该不会发生
+						}
 						break over;
 					}
 					Runnable runnable = new Runnable() {
@@ -210,9 +231,11 @@ public class JsonService {
 	public Map<String, Object> saveHighlyRatedRepositories() throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		ArrayList<Repository> datas = new ArrayList<>();
+		ArrayList<Repository> typedata = new ArrayList<>();//存放一个type的数据
 		String[] types = { "stars", "forks" };
 
-		over: for (; type_highre < types.length; type_highre++) {
+		over:
+		for (; type_highre < types.length; type_highre++) {
 			for (; page_highre <= 5; page_highre++) {
 				String request = "https://api.github.com/search/repositories?q=" + types[type_highre] + ":>1000&sort="
 						+ types[type_highre] + "&per_page=100&page=" + page_highre;
@@ -235,6 +258,18 @@ public class JsonService {
 						String userJson = insideObject.getJSONObject("owner").getString("url"); // 又一个请求
 
 						if (tp.isShutdown()) {// 直接返回
+							if (user_highre != 0) {
+								user_highre --;
+							} else if (page_highre != 1) {
+								user_highre = array.length() - 1;
+								page_highre--;
+							} else if (type_highre != 0) {
+								user_highre = array.length() - 1;
+								page_highre = 5;
+								type_highre--;
+							} else {
+								//应该不会发生
+							}
 							break over;
 						}
 						Runnable runnable = new Runnable() {
@@ -246,13 +281,13 @@ public class JsonService {
 											? userObject.getString("location")
 											: "";
 									Repository data = new Repository(fullname, owner, region, language, star, fork);
-									synchronized (datas) {
-										datas.add(data);
+									synchronized (typedata) {
+										typedata.add(data);
 									}
 								} else {
 									Repository data = new Repository(fullname, owner, "", language, star, fork);
-									synchronized (datas) {
-										datas.add(data);
+									synchronized (typedata) {
+										typedata.add(data);
 									}
 								}
 								threadcount--;
@@ -267,6 +302,10 @@ public class JsonService {
 				}
 			}
 			page_highre = 1;
+			
+			datas.addAll(typedata);
+			highlyRatedRepositoriesDao.inserttodao(typedata);	//在这里插入避免array里有重复数据
+			typedata.clear();
 		}
 		if (!tp.isShutdown()) {// 还有空余的情况下才重置
 			type_highre = 0;
@@ -274,18 +313,21 @@ public class JsonService {
 			user_highre = 0;
 			functioncount = 0;
 		}
-		
-		highlyRatedRepositoriesDao.inserttodao(datas);
 
 		map.put("num", datas.size());
-		map.put("data", null);
+		map.put("data", datas);
 		map.put("info", null);
 
 		return map;
 	}
 
 	JSONObject analyjson(String address) {
-		address += "&client_id=" + clientId + "&client_secret=" + clientSecret;// 加个认证
+		if (address.indexOf("&") == -1) { //没有&
+			address += "?client_id=" + clientId + "&client_secret=" + clientSecret;// 加个认证
+		} else {
+			address += "&client_id=" + clientId + "&client_secret=" + clientSecret;// 加个认证
+		}
+		
 		logger.info(address);
 		JSONObject json = new JSONObject();
 		json.put("message", "");
