@@ -106,7 +106,7 @@
                 <th data-field="stars" data-sortable="true">Stars</th>
                 <th data-field="forks" data-sortable="true">Forks</th>
                 <th data-field="language" data-filter-control="select">语言</th>
-                <th class="filter-control" data-field="region" data-filter-control="input">位置</th>
+                <th class="filter-control" data-field="location" data-filter-control="input">位置</th>
             </tr>
             </thead>
         </table>
@@ -205,7 +205,7 @@
 
     $(function () {
         $table.bootstrapTable({
-            url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=stars',         //请求后台的URL（*）
+            url: '../test/getHighlyRatedRepositories_stars.json',         //请求后台的URL（*）
             contentType: "application/x-www-form-urlencoded",
             method: 'get',
             dataType: 'json',
@@ -271,11 +271,11 @@
 
         if (value === 'stars') {
             $table.bootstrapTable('refresh', {
-                url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=stars'
+                url: '../test/getHighlyRatedRepositories_stars.json'
             });
         } else if (value === 'forks') {
             $table.bootstrapTable('refresh', {
-                url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=forks'
+                url: '../test/getHighlyRatedRepositories_forks.json'
             });
         }
 

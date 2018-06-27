@@ -1,431 +1,370 @@
 {
-  "status": 200,
-  "msg": "OK",
+  "status": 201,
+  "msg": "fail",
   "data": {
-    "data": [
+    "datas": [
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2008",
           "month": "",
-          "number": 570
-        }
+          "number": 889
+        },
+        "year": "2008",
+        "month": "",
+        "number": 889
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2009",
           "month": "",
-          "number": 3812
-        }
+          "number": 3871
+        },
+        "year": "2009",
+        "month": "",
+        "number": 3871
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2010",
           "month": "",
-          "number": 13171
-        }
+          "number": 9169
+        },
+        "year": "2010",
+        "month": "",
+        "number": 9169
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2011",
           "month": "",
-          "number": 41622
-        }
+          "number": 19854
+        },
+        "year": "2011",
+        "month": "",
+        "number": 19854
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 97738
-        }
+          "number": 36789
+        },
+        "year": "2012",
+        "month": "",
+        "number": 36789
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 194600
-        }
+          "number": 64843
+        },
+        "year": "2013",
+        "month": "",
+        "number": 64843
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 360416
-        }
+          "number": 95292
+        },
+        "year": "2014",
+        "month": "",
+        "number": 95292
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 692544
-        }
+          "number": 150558
+        },
+        "year": "2015",
+        "month": "",
+        "number": 150558
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 1061672
-        }
+          "number": 185444
+        },
+        "year": "2016",
+        "month": "",
+        "number": 185444
       },
       {
-        "language": "Java",
+        "language": "C",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 1492671
-        }
+          "number": 231369
+        },
+        "year": "2017",
+        "month": "",
+        "number": 231369
       },
       {
-        "language": "Python",
-        "data": {
-          "year": "2015",
-          "month": "",
-          "number": 342847
-        }
-      },
-      {
-        "language": "Python",
-        "data": {
-          "year": "2016",
-          "month": "",
-          "number": 518840
-        }
-      },
-      {
-        "language": "Python",
-        "data": {
-          "year": "2017",
-          "month": "",
-          "number": 845902
-        }
-      },
-      {
-        "language": "Python",
+        "language": "C",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 533745
-        }
+          "number": 141993
+        },
+        "year": "2018",
+        "month": "",
+        "number": 141993
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2008",
           "month": "",
-          "number": 110
-        }
+          "number": 137
+        },
+        "year": "2008",
+        "month": "",
+        "number": 137
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2009",
           "month": "",
-          "number": 364
-        }
+          "number": 1190
+        },
+        "year": "2009",
+        "month": "",
+        "number": 1190
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2010",
           "month": "",
-          "number": 903
-        }
+          "number": 3627
+        },
+        "year": "2010",
+        "month": "",
+        "number": 3627
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2011",
           "month": "",
-          "number": 2812
-        }
+          "number": 9244
+        },
+        "year": "2011",
+        "month": "",
+        "number": 9244
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 7429
-        }
+          "number": 24038
+        },
+        "year": "2012",
+        "month": "",
+        "number": 24038
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 17285
-        }
+          "number": 48096
+        },
+        "year": "2013",
+        "month": "",
+        "number": 48096
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 84770
-        }
+          "number": 88984
+        },
+        "year": "2014",
+        "month": "",
+        "number": 88984
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 409303
-        }
+          "number": 179870
+        },
+        "year": "2015",
+        "month": "",
+        "number": 179870
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 518969
-        }
+          "number": 264302
+        },
+        "year": "2016",
+        "month": "",
+        "number": 264302
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 1205766
-        }
+          "number": 397422
+        },
+        "year": "2017",
+        "month": "",
+        "number": 397422
       },
       {
-        "language": "HTML",
+        "language": "C%23",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 723729
-        }
+          "number": 265252
+        },
+        "year": "2018",
+        "month": "",
+        "number": 265252
       },
       {
-        "language": "JavaScript",
+        "language": "C%2B%2B",
         "data": {
           "year": "2008",
           "month": "",
-          "number": 1914
-        }
+          "number": 538
+        },
+        "year": "2008",
+        "month": "",
+        "number": 538
       },
       {
-        "language": "JavaScript",
+        "language": "C%2B%2B",
         "data": {
           "year": "2009",
           "month": "",
-          "number": 7522
-        }
+          "number": 2546
+        },
+        "year": "2009",
+        "month": "",
+        "number": 2546
       },
       {
-        "language": "JavaScript",
+        "language": "C%2B%2B",
         "data": {
           "year": "2010",
           "month": "",
-          "number": 21087
-        }
+          "number": 6115
+        },
+        "year": "2010",
+        "month": "",
+        "number": 6115
       },
       {
-        "language": "JavaScript",
-        "data": {
-          "year": "2013",
-          "month": "",
-          "number": 274653
-        }
-      },
-      {
-        "language": "JavaScript",
-        "data": {
-          "year": "2014",
-          "month": "",
-          "number": 450423
-        }
-      },
-      {
-        "language": "JavaScript",
-        "data": {
-          "year": "2015",
-          "month": "",
-          "number": 706641
-        }
-      },
-      {
-        "language": "JavaScript",
-        "data": {
-          "year": "2016",
-          "month": "",
-          "number": 1146002
-        }
-      },
-      {
-        "language": "JavaScript",
-        "data": {
-          "year": "2017",
-          "month": "",
-          "number": 1731311
-        }
-      },
-      {
-        "language": "JavaScript",
-        "data": {
-          "year": "2018",
-          "month": "",
-          "number": 1035318
-        }
-      },
-      {
-        "language": "PHP",
-        "data": {
-          "year": "2008",
-          "month": "",
-          "number": 753
-        }
-      },
-      {
-        "language": "PHP",
-        "data": {
-          "year": "2009",
-          "month": "",
-          "number": 4176
-        }
-      },
-      {
-        "language": "PHP",
-        "data": {
-          "year": "2010",
-          "month": "",
-          "number": 12931
-        }
-      },
-      {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2011",
           "month": "",
-          "number": 33051
-        }
+          "number": 16167
+        },
+        "year": "2011",
+        "month": "",
+        "number": 16167
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 66947
-        }
+          "number": 35682
+        },
+        "year": "2012",
+        "month": "",
+        "number": 35682
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 114873
-        }
+          "number": 70344
+        },
+        "year": "2013",
+        "month": "",
+        "number": 70344
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 170729
-        }
+          "number": 98402
+        },
+        "year": "2014",
+        "month": "",
+        "number": 98402
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 261078
-        }
+          "number": 190982
+        },
+        "year": "2015",
+        "month": "",
+        "number": 190982
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 328832
-        }
+          "number": 247364
+        },
+        "year": "2016",
+        "month": "",
+        "number": 247364
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 455486
-        }
+          "number": 334536
+        },
+        "year": "2017",
+        "month": "",
+        "number": 334536
       },
       {
-        "language": "PHP",
+        "language": "C%2B%2B",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 242961
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2008",
-          "month": "",
-          "number": 7729
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2009",
-          "month": "",
-          "number": 16755
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2010",
-          "month": "",
-          "number": 29095
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2014",
-          "month": "",
-          "number": 202866
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2015",
-          "month": "",
-          "number": 237062
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2016",
-          "month": "",
-          "number": 247871
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2017",
-          "month": "",
-          "number": 272859
-        }
-      },
-      {
-        "language": "Ruby",
-        "data": {
-          "year": "2018",
-          "month": "",
-          "number": 128291
-        }
+          "number": 230555
+        },
+        "year": "2018",
+        "month": "",
+        "number": 230555
       },
       {
         "language": "CSS",
@@ -433,7 +372,10 @@
           "year": "2008",
           "month": "",
           "number": 83
-        }
+        },
+        "year": "2008",
+        "month": "",
+        "number": 83
       },
       {
         "language": "CSS",
@@ -441,7 +383,10 @@
           "year": "2009",
           "month": "",
           "number": 284
-        }
+        },
+        "year": "2009",
+        "month": "",
+        "number": 284
       },
       {
         "language": "CSS",
@@ -449,7 +394,10 @@
           "year": "2010",
           "month": "",
           "number": 691
-        }
+        },
+        "year": "2010",
+        "month": "",
+        "number": 691
       },
       {
         "language": "CSS",
@@ -457,183 +405,813 @@
           "year": "2011",
           "month": "",
           "number": 2352
-        }
+        },
+        "year": "2011",
+        "month": "",
+        "number": 2352
       },
       {
         "language": "CSS",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 8211
-        }
+          "number": 8194
+        },
+        "year": "2012",
+        "month": "",
+        "number": 8194
       },
       {
         "language": "CSS",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 70597
-        }
+          "number": 70493
+        },
+        "year": "2013",
+        "month": "",
+        "number": 70493
       },
       {
         "language": "CSS",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 188120
-        }
+          "number": 187777
+        },
+        "year": "2014",
+        "month": "",
+        "number": 187777
       },
       {
         "language": "CSS",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 218715
-        }
+          "number": 218273
+        },
+        "year": "2015",
+        "month": "",
+        "number": 218273
       },
       {
         "language": "CSS",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 341770
-        }
+          "number": 340902
+        },
+        "year": "2016",
+        "month": "",
+        "number": 340902
       },
       {
         "language": "CSS",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 439340
-        }
+          "number": 437577
+        },
+        "year": "2017",
+        "month": "",
+        "number": 437577
       },
       {
         "language": "CSS",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 241861
-        }
+          "number": 264793
+        },
+        "year": "2018",
+        "month": "",
+        "number": 264793
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2008",
           "month": "",
-          "number": 889
-        }
+          "number": 110
+        },
+        "year": "2008",
+        "month": "",
+        "number": 110
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2009",
           "month": "",
-          "number": 3872
-        }
+          "number": 365
+        },
+        "year": "2009",
+        "month": "",
+        "number": 365
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2010",
           "month": "",
-          "number": 9179
-        }
+          "number": 905
+        },
+        "year": "2010",
+        "month": "",
+        "number": 905
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2011",
           "month": "",
-          "number": 19875
-        }
+          "number": 2834
+        },
+        "year": "2011",
+        "month": "",
+        "number": 2834
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 36841
-        }
+          "number": 7445
+        },
+        "year": "2012",
+        "month": "",
+        "number": 7445
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 64909
-        }
+          "number": 17308
+        },
+        "year": "2013",
+        "month": "",
+        "number": 17308
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 95415
-        }
+          "number": 84792
+        },
+        "year": "2014",
+        "month": "",
+        "number": 84792
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 151041
-        }
+          "number": 408689
+        },
+        "year": "2015",
+        "month": "",
+        "number": 408689
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 185775
-        }
+          "number": 752626
+        },
+        "year": "2016",
+        "month": "",
+        "number": 752626
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 233622
-        }
+          "number": 1208063
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1208063
       },
       {
-        "language": "C++",
+        "language": "HTML",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 131711
-        }
+          "number": 795920
+        },
+        "year": "2018",
+        "month": "",
+        "number": 795920
       },
       {
-        "language": "C#",
+        "language": "Java",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 570
+        },
+        "year": "2008",
+        "month": "",
+        "number": 570
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2009",
+          "month": "",
+          "number": 3809
+        },
+        "year": "2009",
+        "month": "",
+        "number": 3809
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2010",
+          "month": "",
+          "number": 13161
+        },
+        "year": "2010",
+        "month": "",
+        "number": 13161
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2011",
+          "month": "",
+          "number": 41587
+        },
+        "year": "2011",
+        "month": "",
+        "number": 41587
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2012",
+          "month": "",
+          "number": 97652
+        },
+        "year": "2012",
+        "month": "",
+        "number": 97652
+      },
+      {
+        "language": "Java",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 936142
-        }
+          "number": 194377
+        },
+        "year": "2013",
+        "month": "",
+        "number": 194377
       },
       {
-        "language": "C#",
+        "language": "Java",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 936142
-        }
+          "number": 360010
+        },
+        "year": "2014",
+        "month": "",
+        "number": 360010
       },
       {
-        "language": "C#",
+        "language": "Java",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 936142
-        }
+          "number": 691382
+        },
+        "year": "2015",
+        "month": "",
+        "number": 691382
       },
       {
-        "language": "C#",
+        "language": "Java",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 936142
-        }
+          "number": 1059627
+        },
+        "year": "2016",
+        "month": "",
+        "number": 1059627
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 1488082
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1488082
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2018",
+          "month": "",
+          "number": 913180
+        },
+        "year": "2018",
+        "month": "",
+        "number": 913180
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 1914
+        },
+        "year": "2008",
+        "month": "",
+        "number": 1914
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2009",
+          "month": "",
+          "number": 7517
+        },
+        "year": "2009",
+        "month": "",
+        "number": 7517
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2010",
+          "month": "",
+          "number": 21075
+        },
+        "year": "2010",
+        "month": "",
+        "number": 21075
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2011",
+          "month": "",
+          "number": 54448
+        },
+        "year": "2011",
+        "month": "",
+        "number": 54448
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2012",
+          "month": "",
+          "number": 135755
+        },
+        "year": "2012",
+        "month": "",
+        "number": 135755
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2013",
+          "month": "",
+          "number": 274541
+        },
+        "year": "2013",
+        "month": "",
+        "number": 274541
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2014",
+          "month": "",
+          "number": 449897
+        },
+        "year": "2014",
+        "month": "",
+        "number": 449897
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 705728
+        },
+        "year": "2015",
+        "month": "",
+        "number": 705728
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 1143986
+        },
+        "year": "2016",
+        "month": "",
+        "number": 1143986
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 1725957
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1725957
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2018",
+          "month": "",
+          "number": 1141949
+        },
+        "year": "2018",
+        "month": "",
+        "number": 1141949
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 753
+        },
+        "year": "2008",
+        "month": "",
+        "number": 753
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2009",
+          "month": "",
+          "number": 4173
+        },
+        "year": "2009",
+        "month": "",
+        "number": 4173
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2010",
+          "month": "",
+          "number": 12922
+        },
+        "year": "2010",
+        "month": "",
+        "number": 12922
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2011",
+          "month": "",
+          "number": 33017
+        },
+        "year": "2011",
+        "month": "",
+        "number": 33017
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2012",
+          "month": "",
+          "number": 66872
+        },
+        "year": "2012",
+        "month": "",
+        "number": 66872
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2013",
+          "month": "",
+          "number": 114725
+        },
+        "year": "2013",
+        "month": "",
+        "number": 114725
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2014",
+          "month": "",
+          "number": 170468
+        },
+        "year": "2014",
+        "month": "",
+        "number": 170468
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 260658
+        },
+        "year": "2015",
+        "month": "",
+        "number": 260658
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 327997
+        },
+        "year": "2016",
+        "month": "",
+        "number": 327997
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 453755
+        },
+        "year": "2017",
+        "month": "",
+        "number": 453755
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2018",
+          "month": "",
+          "number": 266037
+        },
+        "year": "2018",
+        "month": "",
+        "number": 266037
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 1432
+        },
+        "year": "2008",
+        "month": "",
+        "number": 1432
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2009",
+          "month": "",
+          "number": 7247
+        },
+        "year": "2009",
+        "month": "",
+        "number": 7247
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2010",
+          "month": "",
+          "number": 16812
+        },
+        "year": "2010",
+        "month": "",
+        "number": 16812
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2011",
+          "month": "",
+          "number": 37457
+        },
+        "year": "2011",
+        "month": "",
+        "number": 37457
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2012",
+          "month": "",
+          "number": 71098
+        },
+        "year": "2012",
+        "month": "",
+        "number": 71098
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2013",
+          "month": "",
+          "number": 127655
+        },
+        "year": "2013",
+        "month": "",
+        "number": 127655
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2014",
+          "month": "",
+          "number": 208668
+        },
+        "year": "2014",
+        "month": "",
+        "number": 208668
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 342350
+        },
+        "year": "2015",
+        "month": "",
+        "number": 342350
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 517910
+        },
+        "year": "2016",
+        "month": "",
+        "number": 517910
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 843569
+        },
+        "year": "2017",
+        "month": "",
+        "number": 843569
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2018",
+          "month": "",
+          "number": 588144
+        },
+        "year": "2018",
+        "month": "",
+        "number": 588144
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2008",
+          "month": "",
+          "number": 7724
+        },
+        "year": "2008",
+        "month": "",
+        "number": 7724
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2009",
+          "month": "",
+          "number": 16745
+        },
+        "year": "2009",
+        "month": "",
+        "number": 16745
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2010",
+          "month": "",
+          "number": 29066
+        },
+        "year": "2010",
+        "month": "",
+        "number": 29066
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2011",
+          "month": "",
+          "number": 61923
+        },
+        "year": "2011",
+        "month": "",
+        "number": 61923
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2012",
+          "month": "",
+          "number": 106857
+        },
+        "year": "2012",
+        "month": "",
+        "number": 106857
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2013",
+          "month": "",
+          "number": 170520
+        },
+        "year": "2013",
+        "month": "",
+        "number": 170520
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2014",
+          "month": "",
+          "number": 202270
+        },
+        "year": "2014",
+        "month": "",
+        "number": 202270
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2015",
+          "month": "",
+          "number": 236829
+        },
+        "year": "2015",
+        "month": "",
+        "number": 236829
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2016",
+          "month": "",
+          "number": 247454
+        },
+        "year": "2016",
+        "month": "",
+        "number": 247454
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 272360
+        },
+        "year": "2017",
+        "month": "",
+        "number": 272360
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2018",
+          "month": "",
+          "number": 133360
+        },
+        "year": "2018",
+        "month": "",
+        "number": 133360
       },
       {
         "language": "TypeScript",
@@ -641,7 +1219,10 @@
           "year": "2008",
           "month": "",
           "number": 1
-        }
+        },
+        "year": "2008",
+        "month": "",
+        "number": 1
       },
       {
         "language": "TypeScript",
@@ -649,82 +1230,112 @@
           "year": "2009",
           "month": "",
           "number": 3
-        }
+        },
+        "year": "2009",
+        "month": "",
+        "number": 3
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2010",
           "month": "",
-          "number": 12
-        }
+          "number": 13
+        },
+        "year": "2010",
+        "month": "",
+        "number": 13
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2011",
           "month": "",
-          "number": 36
-        }
+          "number": 37
+        },
+        "year": "2011",
+        "month": "",
+        "number": 37
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2012",
           "month": "",
-          "number": 128
-        }
+          "number": 130
+        },
+        "year": "2012",
+        "month": "",
+        "number": 130
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2013",
           "month": "",
-          "number": 1193
-        }
+          "number": 1197
+        },
+        "year": "2013",
+        "month": "",
+        "number": 1197
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2014",
           "month": "",
-          "number": 3470
-        }
+          "number": 3468
+        },
+        "year": "2014",
+        "month": "",
+        "number": 3468
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2015",
           "month": "",
-          "number": 6167
-        }
+          "number": 6168
+        },
+        "year": "2015",
+        "month": "",
+        "number": 6168
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2016",
           "month": "",
-          "number": 48288
-        }
+          "number": 48227
+        },
+        "year": "2016",
+        "month": "",
+        "number": 48227
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2017",
           "month": "",
-          "number": 190589
-        }
+          "number": 190501
+        },
+        "year": "2017",
+        "month": "",
+        "number": 190501
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2018",
           "month": "",
-          "number": 147213
-        }
+          "number": 154724
+        },
+        "year": "2018",
+        "month": "",
+        "number": 154724
       }
     ],
-    "num": 55,
+    "num": 121,
     "info": null
   },
   "error": null

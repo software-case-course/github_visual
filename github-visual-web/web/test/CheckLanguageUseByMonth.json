@@ -1,306 +1,1583 @@
 {
-  "status": 200,
-  "msg": "OK",
+  "status": 201,
+  "msg": "fail",
   "data": {
-    "data": [
+    "datas": [
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 231369
+        },
+        "year": "2017",
+        "month": "",
+        "number": 231369
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 15787
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 15787
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 17379
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 17379
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 21025
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 21025
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 19121
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 19121
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 18866
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 18866
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 17034
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 17034
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 16406
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 16406
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 16995
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 16995
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 21170
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 21170
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 23403
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 23403
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 23786
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 23786
+      },
+      {
+        "language": "C",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 20590
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 20590
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 397433
+        },
+        "year": "2017",
+        "month": "",
+        "number": 397433
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 28022
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 28022
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 29772
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 29772
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 33740
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 33740
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 32241
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 32241
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 33143
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 33143
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 30161
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 30161
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 30439
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 30439
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 31085
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 31085
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 35002
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 35002
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 39625
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 39625
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 39543
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 39543
+      },
+      {
+        "language": "C%23",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 35053
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 35053
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 334534
+        },
+        "year": "2017",
+        "month": "",
+        "number": 334534
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 22106
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 22106
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 24333
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 24333
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 30805
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 30805
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 27646
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 27646
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 27091
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 27091
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 24283
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 24283
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 23346
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 23346
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 24437
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 24437
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 30014
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 30014
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 35423
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 35423
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 34564
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 34564
+      },
+      {
+        "language": "C%2B%2B",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 30720
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 30720
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 437577
+        },
+        "year": "2017",
+        "month": "",
+        "number": 437577
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 30438
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 30438
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 33347
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 33347
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 39210
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 39210
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 34879
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 34879
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 35546
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 35546
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 34644
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 34644
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 36554
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 36554
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 37115
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 37115
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 37081
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 37081
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 41824
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 41824
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 41901
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 41901
+      },
+      {
+        "language": "CSS",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 35524
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 35524
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 1208063
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1208063
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 83276
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 83276
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 90833
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 90833
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 104370
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 104370
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 93799
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 93799
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 97113
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 97113
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 94473
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 94473
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 97053
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 97053
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 101026
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 101026
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 110483
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 110483
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "10",
+          "number": 119319
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 119319
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "11",
+          "number": 116682
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 116682
+      },
+      {
+        "language": "HTML",
+        "data": {
+          "year": "2017",
+          "month": "12",
+          "number": 100866
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 100866
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 1488082
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1488082
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 97390
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 97390
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 110082
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 110082
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 137915
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 137915
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 120252
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 120252
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 122679
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 122679
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 113162
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 113162
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 113160
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 113160
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 114700
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 114700
+      },
+      {
+        "language": "Java",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 134806
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 134806
+      },
       {
         "language": "Java",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 147962
-        }
+          "number": 147617
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 147617
       },
       {
         "language": "Java",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 149741
-        }
+          "number": 149319
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 149319
       },
       {
         "language": "Java",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 128378
-        }
+          "number": 128313
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 128313
       },
       {
-        "language": "Python",
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 1725957
+        },
+        "year": "2017",
+        "month": "",
+        "number": 1725957
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 116918
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 116918
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 124957
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 124957
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 148410
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 148410
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 142685
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 142685
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 137458
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 137458
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 136906
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 136906
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 144937
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 144937
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 148766
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 148766
+      },
+      {
+        "language": "JavaScript",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 148642
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 148642
+      },
+      {
+        "language": "JavaScript",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 85012
-        }
+          "number": 159462
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 159462
       },
       {
-        "language": "Python",
+        "language": "JavaScript",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 86902
-        }
-      },
-      {
-        "language": "Python",
-        "data": {
-          "year": "2017",
-          "month": "12",
-          "number": 82102
-        }
+          "number": 166277
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 166277
       },
       {
         "language": "JavaScript",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 152489
-        }
+          "number": 151971
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 151971
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 453755
+        },
+        "year": "2017",
+        "month": "",
+        "number": 453755
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 30718
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 30718
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 34155
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 34155
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 39286
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 39286
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 34257
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 34257
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 36764
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 36764
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 34288
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 34288
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 42860
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 42860
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 43324
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 43324
+      },
+      {
+        "language": "PHP",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 37405
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 37405
       },
       {
         "language": "PHP",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 41803
-        }
+          "number": 41784
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 41784
       },
       {
         "language": "PHP",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 42397
-        }
+          "number": 39698
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 39698
       },
       {
         "language": "PHP",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 37229
-        }
+          "number": 37059
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 37059
       },
       {
-        "language": "CSS",
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 843569
+        },
+        "year": "2017",
+        "month": "",
+        "number": 843569
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 56628
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 56628
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 59267
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 59267
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 68876
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 68876
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 64368
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 64368
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 66040
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 66040
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 64295
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 64295
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 67528
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 67528
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 67245
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 67245
+      },
+      {
+        "language": "Python",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 76579
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 76579
+      },
+      {
+        "language": "Python",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 41979
-        }
+          "number": 84802
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 84802
       },
       {
-        "language": "CSS",
+        "language": "Python",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 42030
-        }
+          "number": 86703
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 86703
       },
       {
-        "language": "HTML",
-        "data": {
-          "year": "2017",
-          "month": "10",
-          "number": 119372
-        }
-      },
-      {
-        "language": "HTML",
-        "data": {
-          "year": "2017",
-          "month": "11",
-          "number": 116742
-        }
-      },
-      {
-        "language": "HTML",
+        "language": "Python",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 101187
-        }
+          "number": 81913
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 81913
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "",
+          "number": 272360
+        },
+        "year": "2017",
+        "month": "",
+        "number": 272360
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "01",
+          "number": 21160
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 21160
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "02",
+          "number": 22721
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 22721
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "03",
+          "number": 25746
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 25746
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "04",
+          "number": 24374
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 24374
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "05",
+          "number": 23658
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 23658
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "06",
+          "number": 22006
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 22006
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "07",
+          "number": 22715
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 22715
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "08",
+          "number": 23278
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 23278
+      },
+      {
+        "language": "Ruby",
+        "data": {
+          "year": "2017",
+          "month": "09",
+          "number": 21036
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 21036
       },
       {
         "language": "Ruby",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 24133
-        }
+          "number": 24063
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 24063
       },
       {
         "language": "Ruby",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 23435
-        }
+          "number": 23371
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 23371
       },
       {
         "language": "Ruby",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 18582
-        }
+          "number": 17715
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 17715
       },
       {
-        "language": "CSS",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "12",
-          "number": 35664
-        }
+          "month": "",
+          "number": 190683
+        },
+        "year": "2017",
+        "month": "",
+        "number": 190683
       },
       {
-        "language": "C++",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "10",
-          "number": 23469
-        }
+          "month": "01",
+          "number": 8889
+        },
+        "year": "2017",
+        "month": "01",
+        "number": 8889
       },
       {
-        "language": "C++",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "11",
-          "number": 23819
-        }
+          "month": "02",
+          "number": 10076
+        },
+        "year": "2017",
+        "month": "02",
+        "number": 10076
       },
       {
-        "language": "C++",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "12",
-          "number": 20635
-        }
+          "month": "03",
+          "number": 12653
+        },
+        "year": "2017",
+        "month": "03",
+        "number": 12653
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "1",
-          "number": 936130
-        }
+          "month": "04",
+          "number": 12787
+        },
+        "year": "2017",
+        "month": "04",
+        "number": 12787
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "2",
-          "number": 936130
-        }
+          "month": "05",
+          "number": 14398
+        },
+        "year": "2017",
+        "month": "05",
+        "number": 14398
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "3",
-          "number": 933438
-        }
+          "month": "06",
+          "number": 14948
+        },
+        "year": "2017",
+        "month": "06",
+        "number": 14948
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "4",
-          "number": 933438
-        }
+          "month": "07",
+          "number": 16810
+        },
+        "year": "2017",
+        "month": "07",
+        "number": 16810
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "5",
-          "number": 933438
-        }
+          "month": "08",
+          "number": 17779
+        },
+        "year": "2017",
+        "month": "08",
+        "number": 17779
       },
       {
-        "language": "C#",
+        "language": "TypeScript",
         "data": {
           "year": "2017",
-          "month": "6",
-          "number": 933438
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "7",
-          "number": 933438
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "8",
-          "number": 933438
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "9",
-          "number": 933439
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "10",
-          "number": 933439
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "11",
-          "number": 933439
-        }
-      },
-      {
-        "language": "C#",
-        "data": {
-          "year": "2017",
-          "month": "12",
-          "number": 933439
-        }
+          "month": "09",
+          "number": 19115
+        },
+        "year": "2017",
+        "month": "09",
+        "number": 19115
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2017",
           "month": "10",
-          "number": 21108
-        }
+          "number": 21106
+        },
+        "year": "2017",
+        "month": "10",
+        "number": 21106
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2017",
           "month": "11",
-          "number": 22013
-        }
+          "number": 21978
+        },
+        "year": "2017",
+        "month": "11",
+        "number": 21978
       },
       {
         "language": "TypeScript",
         "data": {
           "year": "2017",
           "month": "12",
-          "number": 20228
-        }
+          "number": 20160
+        },
+        "year": "2017",
+        "month": "12",
+        "number": 20160
       }
     ],
-    "num": 23,
+    "num": 143,
     "info": null
   },
   "error": null
