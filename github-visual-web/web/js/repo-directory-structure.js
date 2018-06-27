@@ -59,6 +59,7 @@ function getRepo(branch) {
         },
         error: function (request, status, error) {
             // $('img#logo').attr('src', 'images/logo.png');
+            $('img').hide();
             alert('Error loading repo: ' + request.statusText);
         }
     });

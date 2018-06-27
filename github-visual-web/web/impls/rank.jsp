@@ -102,8 +102,9 @@
         <table id="table" data-filter-control="true" data-filter-show-clear="true">
             <thead>
             <tr>
-                <th data-field="fullName" data-sortable="true">仓库名称</th>
-                <th data-field="num" data-sortable="true">数量</th>
+                <th data-field="repo_name" data-sortable="true">仓库名称</th>
+                <th data-field="stars" data-sortable="true">Stars</th>
+                <th data-field="forks" data-sortable="true">Forks</th>
                 <th data-field="language" data-filter-control="select">语言</th>
                 <th class="filter-control" data-field="region" data-filter-control="input">位置</th>
             </tr>
@@ -204,7 +205,7 @@
 
     $(function () {
         $table.bootstrapTable({
-            url: '../test/orderByStars.json',         //请求后台的URL（*）
+            url: '../test/getHighlyRatedRepositories.json',         //请求后台的URL（*）
             contentType: "application/x-www-form-urlencoded",
             method: 'get',
             dataType: 'json',
@@ -217,7 +218,7 @@
             showColumns: true,
             showExport: true,
             queryParams: queryParams,
-            // responseHandler: 'responseHandler'
+            responseHandler: responseHandler,
             // classes: "table-no-bordered",  //表格无边框
             pagination: true, //是否显示分页（*）
             sortable: false, //是否启用排序
@@ -232,7 +233,12 @@
             minimumCountColumns: 2, //最少允许的列数
             clickToSelect: true, //是否启用点击选中行
             onClickRow: function (row) {
-                alert(row);
+                // console.log(row);
+                var repo = row.repo_name;
+                temp = repo.split('/');
+                repo = temp[1];
+                // console.log(repo)
+                window.location.href = "repo.jsp?owner="+ row.owner + "&repo=" + repo;
             }
         });
     });
@@ -250,7 +256,9 @@
     }
 
     function responseHandler(res) {
-        return res.data.rows;
+        console.log(res);
+        return res.data.datas;
+        // return res.data.datas.rows;
     }
 
     function selectOnchang(obj) {
@@ -263,11 +271,11 @@
 
         if (value === 'stars') {
             $table.bootstrapTable('refresh', {
-                url: '../test/orderByStars.json'
+                url: 'http://localhost:8081/GithubVisualize/getHighlyRatedRepositories?type=stars'
             });
         } else if (value === 'forks') {
             $table.bootstrapTable('refresh', {
-                url: '../test/orderByForks.json'
+                url: 'http://47.106.37.196:8080/GithubVisualize/getHighlyRatedRepositories?type=forks'
             });
         }
 
