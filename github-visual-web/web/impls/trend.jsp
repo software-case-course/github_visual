@@ -81,10 +81,147 @@
     </form>
 
 <%--<div class="container" style="height:800px;width:800px" id="lineDiv"></div>--%>
-<div class="container" style="height: 700px;" id="lineDiv"></div>
+<div class="container" style="height: 700px; width:1200px" id="lineDiv"></div>
 
 
     <script>
+        
+        var myChart=echarts.init(document.getElementById("lineDiv"));
+        function selectOnchang(obj){
+            var value = obj.options[obj.selectedIndex].value;
+            if(value=="CheckLanguageUseByYear"){
+                loadDataByYear();
+            }
+            else loadDataByMonth();
+        }
+
+        function loadDataByYear(){
+            
+            myChart.showLoading();
+            $.get("../test/CheckLanguageUseByYear.json").done(function(res){
+            var languages=[];
+            var datas=[];
+            var data=[];
+            var xAxis=[];
+            var Series=[];
+            for(var i=0;i<10;i++){
+                xAxis.push(2008+i+"年");
+            }
+                myChart.hideLoading();
+                var record=res.data.data;
+                var len=record.length;
+                var pos='';
+                for(var i=0;i<len;i++){
+                    var item=record[i];
+                    var flag=languages.indexOf(item.language);
+                    if(flag==-1){
+                        if(pos!=''){
+                            datas[pos]=data;
+                            data=[];
+                        }
+                        languages.push(item.language);
+                        pos=item.language;
+                    }
+                    data.push(item.data.number);
+                }
+                for(var j=0;j<languages.length;j++){
+                  var temp={
+                    name:languages[j],
+                    type:'line',
+                    data:datas[languages[j]]
+                    }
+                  Series.push(temp);
+                  }
+          
+            myChart.setOption({
+                title:{
+                    text:"各语言变化趋势"
+                },
+                tooltip:{
+                    trigger:'axis'
+                },
+                legend:{
+                    data:languages
+                },
+                xAxis:{
+                    type:'category',
+                    data:xAxis,
+                    name:'年份'
+                },
+                yAxis:{
+                    name:"数量",
+                },
+                series:Series
+            })
+            })
+
+            myChart.on("click",function(params){
+                loadDataByMonth();
+            })
+        }
+
+
+        function loadDataByMonth(){
+            myChart.showLoading();
+            $.get("../test/CheckLanguageUseByMonth.json").done(function(res){
+            myChart.hideLoading();
+            var languages=[];
+            var datas=[];
+            var data=[];
+            var xAxis=[];
+            var Series=[];
+            for(var i=0;i<13;i++){
+                xAxis.push(i+"月");
+            }
+            var record=res.data.data;
+            var len=record.length;
+            var pos='';
+            for(var i=0;i<len;i++){
+                    var item=record[i];
+                    var flag=languages.indexOf(item.language);
+                    if(flag==-1){
+                        if(pos!=''){
+                            datas[pos]=data;
+                            data=[];
+                        }
+                        languages.push(item.language);
+                        pos=item.language;
+                    }
+                    data.push(item.data.number);
+                }
+                for(var j=0;j<languages.length;j++){
+                  var temp={
+                    name:languages[j],
+                    type:'line',
+                    data:datas[languages[j]]
+                    }
+                  Series.push(temp);
+                  }
+                myChart.setOption({
+                title:{
+                    text:"各语言变化趋势"
+                },
+                tooltip:{
+                    trigger:'axis'
+                },
+                legend:{
+                    data:languages
+                },
+                xAxis:{
+                    type:'category',
+                    data:xAxis,
+                    name:'月份'
+                },
+                yAxis:{
+                    name:"数量",
+                },
+                series:Series
+            })
+            })      
+
+        }
+        
+        /*
         function selectOnchang(obj) {
             var value = obj.options[obj.selectedIndex].value;
             if (value === "CheckLanguageUseByYear") {
@@ -116,11 +253,15 @@
                 loadDataByMonth();
             }
         }
+        
 
         function loadDataByYear() {
             myChart.showLoading();
-            $.get('../test/CheckLanguageUseByYear.json').done(function (res) {
+            $.get('../test/CheckLanguageUseByYear.json').done(function (res) {//Python js ruby c# are wrong!
                 myChart.hideLoading();
+               // console.log(res);
+             //   console.log(res.data);
+               // console.log(res.data.data);
                 // console.log(result);
                 var result = res.data.data;
                 // console.log(temp);
@@ -149,13 +290,13 @@
 
                     // datas[item.language] = data;
 
-                    /* languages.push(item.language);
+                    languages.push(item.language);
                      data = [];
                      var temp = item.data;
                      for (var j = 0; j < temp.length; j++) {
                          data.push(temp[j].number);
                      }
-                     datas[i] = data;*/
+                     datas[i] = data;
                 }
 
                 console.log(datas);
@@ -268,8 +409,8 @@
             series: [],
 
         });
-
-        // loadDataByYear();
-
         
+        // loadDataByYear();
+        
+        */
       </script>
