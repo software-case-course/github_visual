@@ -205,7 +205,7 @@
 
     $(function () {
         $table.bootstrapTable({
-            url: '../test/getHighlyRatedRepositories.json',         //请求后台的URL（*）
+            url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=stars',         //请求后台的URL（*）
             contentType: "application/x-www-form-urlencoded",
             method: 'get',
             dataType: 'json',
@@ -271,11 +271,11 @@
 
         if (value === 'stars') {
             $table.bootstrapTable('refresh', {
-                url: 'http://localhost:8081/GithubVisualize/getHighlyRatedRepositories?type=stars'
+                url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=stars'
             });
         } else if (value === 'forks') {
             $table.bootstrapTable('refresh', {
-                url: 'http://47.106.37.196:8080/GithubVisualize/getHighlyRatedRepositories?type=forks'
+                url: 'http://localhost:8080/GithubVisualize/getHighlyRatedRepositories?type=forks'
             });
         }
 

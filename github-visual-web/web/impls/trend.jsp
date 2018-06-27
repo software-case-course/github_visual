@@ -96,7 +96,7 @@
         function loadDataByYear(){
             
             myChart.showLoading();
-            $.get("http://localhost:8081/GithubVisualize/getLanguageUseByYear").done(function(res){
+            $.get("http://localhost:8080/GithubVisualize/getLanguageUseByYear").done(function(res){
             var languages=[];
             var datas=[];
             var data=[];
@@ -161,7 +161,7 @@
 
         function loadDataByMonth(){
             myChart.showLoading();
-            $.get("http://localhost:8081/GithubVisualize/getLanguageUseByMonth&year=2017").done(function(res){
+            $.get("http://localhost:8080/GithubVisualize/getLanguageUseByMonth&year=2017").done(function(res){
             myChart.hideLoading();
             var languages=[];
             var datas=[];
