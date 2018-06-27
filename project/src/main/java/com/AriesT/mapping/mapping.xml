@@ -49,8 +49,8 @@
 		select * from RepoLanguageCount where month = '';
 	</select>
 	
-	<select id="getRepoLanguageCountByMonth" resultType="com.AriesT.Entity.RepoLanguageCount">
-		select * from RepoLanguageCount where month = #{year};
+	<select id="getRepoLanguageCountByMonth" parameterType="java.util.HashMap" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where year = #{year};
 	</select>
 	
 	<delete id="deleteyear">

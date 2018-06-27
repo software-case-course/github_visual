@@ -28,7 +28,7 @@ public class SimpleController {
 	}
 
 	@RequestMapping(value = "/saveAll", method = RequestMethod.GET)
-	@Scheduled(cron = "0 * * * * *")
+	@Scheduled(cron = "0 0/10 * * * *")
 	public ResultEntity<Map<String, Object>> saveAll() throws Exception {
 		Map<String, Object> map = jsonservice.saveAll();
 		ResultEntity<Map<String, Object>> result = ResultEntity.SetResultForController(map);
@@ -78,15 +78,15 @@ public class SimpleController {
 		return result;
 	}
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public void test() throws Exception {
-		daoservice.test();
-	}
-
-	@RequestMapping(value = "/testgetlocation", method = RequestMethod.GET)
-	public String getlocation() throws Exception {
-		String location = daoservice.getlocation("aaa");
-		return location;
-	}
+//	@RequestMapping(value = "/test", method = RequestMethod.GET)
+//	public void test() throws Exception {
+//		daoservice.test();
+//	}
+//
+//	@RequestMapping(value = "/testgetlocation", method = RequestMethod.GET)
+//	public String getlocation() throws Exception {
+//		String location = daoservice.getlocation("aaa");
+//		return location;
+//	}
 
 }

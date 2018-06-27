@@ -41,41 +41,39 @@ public class DaoService extends SqlSessionDaoSupport {
 			else
 				list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getlangrepobyforks", lang);
 		}
-		//改地区
-		for(int i=0;i<list.size();i++){
-			Repository repo=list.get(i);
-			String loca=repo.getLocation();
-			String newloca="";
-			if(!loca.equals("None")){
-				String precountry="";
-				String []locations=loca.split(",");
-				//List<Location> listlocation=new ArrayList<>();
-				for(int j=0;j<locations.length;j++){
-					//List<Location> nlocation=new ArrayList<>();
-					List<Location> nlocation=this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByName",locations[j].trim());
-					String path="";
-					if(nlocation.size()>0){
-						path=nlocation.get(0).getPath();
-						String []subpath=path.split(",");
-						//System.out.print(subpath[2]);
-						if(subpath.length>2){
-							int id=Integer.parseInt(subpath[2]);
-							//System.out.println(Integer.toString(id));
-							List<Location> ilocation=new ArrayList<>();
-							ilocation=this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByNum",id);
-							String country="";
-							if(ilocation.size()>0)
-								country=ilocation.get(0).getName_en();
-							if(newloca.equals("")){
-								newloca=newloca+country;
+		// 改地区
+		for (int i = 0; i < list.size(); i++) {
+			Repository repo = list.get(i);
+			String loca = repo.getLocation();
+			String newloca = "";
+			if (!loca.equals("None") && loca.length() != 0) {
+				String precountry = "";
+				String[] locations = loca.split(",");
+				for (int j = 0; j < locations.length; j++) {
+					List<Location> nlocation = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByName",
+							locations[j].trim());
+					String path = "";
+					if (nlocation != null && nlocation.size() > 0) {
+						path = nlocation.get(0).getPath();
+						String[] subpath = path.split(",");
+						if (subpath.length > 2) {
+							int id = Integer.parseInt(subpath[2]);
+							List<Location> ilocation = new ArrayList<>();
+							ilocation = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByNum",
+									id);
+							String country = "";
+							if (ilocation.size() > 0)
+								country = ilocation.get(0).getName_en();
+							if (newloca.equals("")) {
+								newloca = newloca + country;
 							}
 
-							else if(country.equals(precountry))
+							else if (country.equals(precountry))
 								continue;
-							else{
-								newloca=newloca+","+country;
+							else {
+								newloca = newloca + "," + country;
 							}
-							precountry=country;
+							precountry = country;
 						}
 					}
 
@@ -106,6 +104,7 @@ public class DaoService extends SqlSessionDaoSupport {
 		List<RepoLanguageCount> list = new ArrayList<>();
 		
 		map.put("year", year);
+		logger.info(map.get("year"));
 		list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getRepoLanguageCountByMonth", map);
 		
 		map.remove("year");
