@@ -76,4 +76,12 @@
 	<select id="getuserlocation" resultType="com.AriesT.Entity.User">
 		select * from Users where user_name=#{user_name}
 	</select>
+
+	<select id="getCountryByNum" resultType="com.AriesT.Entity.Location">
+		select * from ht_location where ID=#{ID}
+	</select>
+
+	<select id="getCountryByName" resultType="com.AriesT.Entity.Location">
+		select * from ht_location where name=#{name} or name_en=#{name}
+	</select>
 </mapper>  
