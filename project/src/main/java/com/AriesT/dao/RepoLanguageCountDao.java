@@ -42,7 +42,6 @@ public class RepoLanguageCountDao {
 		RepoLanguageCount rCount = null;
 		for (int i = 0; i < arrayList.size(); i++) {
 			rCount = arrayList.get(i);
-			logger.info("language"+rCount.getLanguage());
 			map.put("language", rCount.getLanguage());
 			map.put("year", rCount.getData().getYear());
 			map.put("month", rCount.getData().getMonth());

@@ -49,8 +49,8 @@
 		select * from RepoLanguageCount where month = '';
 	</select>
 	
-	<select id="getRepoLanguageCountByMonth" resultType="com.AriesT.Entity.RepoLanguageCount">
-		select * from RepoLanguageCount where month = #{year};
+	<select id="getRepoLanguageCountByMonth" parameterType="java.util.HashMap" resultType="com.AriesT.Entity.RepoLanguageCount">
+		select * from RepoLanguageCount where year = #{year};
 	</select>
 	
 	<delete id="deleteyear">
@@ -75,5 +75,13 @@
 
 	<select id="getuserlocation" resultType="com.AriesT.Entity.User">
 		select * from Users where user_name=#{user_name}
+	</select>
+
+	<select id="getCountryByNum" resultType="com.AriesT.Entity.Location">
+		select * from ht_location where ID=#{ID}
+	</select>
+
+	<select id="getCountryByName" resultType="com.AriesT.Entity.Location">
+		select * from ht_location where name=#{name} or name_en=#{name}
 	</select>
 </mapper>  

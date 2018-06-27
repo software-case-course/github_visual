@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.AriesT.Entity.Location;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,46 @@ public class DaoService extends SqlSessionDaoSupport {
 			else
 				list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getlangrepobyforks", lang);
 		}
+		// 改地区
+		for (int i = 0; i < list.size(); i++) {
+			Repository repo = list.get(i);
+			String loca = repo.getLocation();
+			String newloca = "";
+			if (!loca.equals("None") && loca.length() != 0) {
+				String precountry = "";
+				String[] locations = loca.split(",");
+				for (int j = 0; j < locations.length; j++) {
+					List<Location> nlocation = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByName",
+							locations[j].trim());
+					String path = "";
+					if (nlocation != null && nlocation.size() > 0) {
+						path = nlocation.get(0).getPath();
+						String[] subpath = path.split(",");
+						if (subpath.length > 2) {
+							int id = Integer.parseInt(subpath[2]);
+							List<Location> ilocation = new ArrayList<>();
+							ilocation = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getCountryByNum",
+									id);
+							String country = "";
+							if (ilocation.size() > 0)
+								country = ilocation.get(0).getName_en();
+							if (newloca.equals("")) {
+								newloca = newloca + country;
+							}
+
+							else if (country.equals(precountry))
+								continue;
+							else {
+								newloca = newloca + "," + country;
+							}
+							precountry = country;
+						}
+					}
+
+				}
+			}
+			repo.setLocation(newloca);
+		}
 		map.put("num", list.size());
 		map.put("datas", list);
 		map.put("info", null);
@@ -63,6 +104,7 @@ public class DaoService extends SqlSessionDaoSupport {
 		List<RepoLanguageCount> list = new ArrayList<>();
 		
 		map.put("year", year);
+		logger.info(map.get("year"));
 		list = this.getSqlSession().selectList("com.AriesT.mapping.mapping.getRepoLanguageCountByMonth", map);
 		
 		map.remove("year");
